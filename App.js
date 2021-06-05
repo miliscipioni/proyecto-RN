@@ -4,6 +4,8 @@ import {
   Text, 
   View, 
   TouchableOpacity, 
+  Image,
+  ImageStore
 } from 'react-native';
 
 class App extends Component { 
@@ -19,7 +21,10 @@ class App extends Component {
     <View>
         <View style={styles.container}> 
             <View style={styles.navbar}>
-                  <Text style={styles.navbarDetails}>Home</Text>
+                  <Text style={styles.navbarDetails}>Home
+                  <Image style= {styles.imgNavbar} source= {require('@img/icono_buscador.png')}></Image>
+                  <Image style= {styles.imgNavbar} source= {require('@img/icono_papelera.png')}></Image>
+                  </Text>
             </View>
 
          

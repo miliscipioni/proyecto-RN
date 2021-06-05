@@ -3,19 +3,33 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create ({
 container: {
     backgroundColor: '#010A43',
-
+    height: '100%',
+    width: '100%'
 }, 
 navbar: {
-    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: '#1C265C',
     width: '100%',
-    height: '100%',
+    height: '10%',
+    
     
 }, 
-/* navbarDetails: {
+ navbarDetails: {
+     display: 'flex',
     color: '#05BC97',
-    fontSize: 30
-}*/
+    fontSize: 30, 
+    margin: 15, 
+    fontWeight: 'bold'
+},
+imgNavbar: {
+    position: 'absolute',
+    display: 'flex',
+    width: 40,
+    height: 40,
+}
+
 
    
 })
