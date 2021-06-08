@@ -1,18 +1,24 @@
 import React, {Component} from 'react'; 
-import {styles} from './src/Styles';
 import {
   Text, 
   View, 
-  TouchableOpacity,
+  Image
 } from 'react-native';
 import {styles} from '../src/Styles'
 
-class App extends Component { 
+export class Home extends Component { 
   render () {
       return(
-    null
+        <View style={styles.container}> 
+        <View style={styles.navbar}>
+              <Text style={styles.navbarDetails}>Home
+              <Image style= {styles.imgNavbar} source= {require('@img/icono_buscador.png')}></Image>
+              <Image style= {styles.imgNavbar} source= {require('@img/icono_papelera.png')}></Image>
+              </Text>
+        </View>
+
+     
+    </View>
       )
    }
 }
-
-export default App;
