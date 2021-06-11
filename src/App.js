@@ -5,15 +5,20 @@ import {
   Text, 
   View, 
 } from 'react-native';
+import ImportedCards from '../Screens/ImportedCards';
+import Import from '../Screens/Import';
 
 class App extends Component { 
 
-    render () { 
-      return (
-       <Home/>
-      )
-      
-    }
+  constructor(){
+    super();
   }
+
+  render () { 
+    return (
+      <Import/>
+    ) 
+  }
+}
 
 export default App;
