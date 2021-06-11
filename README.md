@@ -1,2 +1,1 @@
 # proyecto-RN
-prueba github
