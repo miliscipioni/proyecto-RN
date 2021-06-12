@@ -7,16 +7,13 @@ import {
 } from 'react-native';
 import ImportedCards from '../Screens/ImportedCards';
 import Import from '../Screens/Import';
+import * as Font from 'expo-font';
 
 class App extends Component { 
 
-  constructor(){
-    super();
-  }
-
   render () { 
     return (
-      <Import/>
+      <Home/>
     ) 
   }
 }

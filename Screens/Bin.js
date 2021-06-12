@@ -5,7 +5,6 @@ import {
   View, 
   TouchableOpacity,
 } from 'react-native';
-import {styles} from '../Styles'
 
 export class Bin extends Component { 
   render () {
@@ -17,4 +16,3 @@ export class Bin extends Component {
       )
    }
 }
-export default Bin;
