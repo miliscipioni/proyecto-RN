@@ -1,5 +1,6 @@
 import React, {Component} from 'react'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Card from "../src/components/Card";
 import {
   Text, 
   View, 
@@ -33,13 +34,10 @@ export class ImportedCards extends Component {
 
   render () { 
       const values = this.state.importedUsers.map( item =>
-         <Card
-         elemento = {item}
-         />
-         )
-         {/*<Text key = {this.props.elemento.login.uuid}>
-              {this.props.elemento.name.first}
-      </Text> */}
+        <Card key = {item.login.uuid} elemento = {item}/>)
+        // <Text key = {item.login.uuid}>
+        //  {item.name.first}
+        // </Text>)
           
       return (
           <View>

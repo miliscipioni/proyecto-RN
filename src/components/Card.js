@@ -9,11 +9,11 @@ import {
 } from 'react-native';
 import {styles} from '../Styles';
 
-export class Card extends Component {
+class Card extends Component {
+
     render() {
         return (
             <View style= {styles.card}>
-
             <Image style={styles.cardImage} source={{uri: this.props.elemento.picture.large}}></Image>
             <Text style= {styles.principalText}>{this.props.elemento.name.first} {this.props.elemento.name.last} </Text>
             <Text style= {styles.secondaryText}>{this.props.elemento.email}</Text> 
@@ -24,3 +24,5 @@ export class Card extends Component {
         )
     }
 }
+
+export default Card;

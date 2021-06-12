@@ -20,7 +20,7 @@ export class AboutUs extends Component {
           {/* <Image style={styles.cardImage} source={{uri: require('@img/')}}></Image> */}
             <Text style={styles.principalText}> Candela Flores </Text>
             <Text style={styles.secondaryText}>cflores@udesa.edu.ar</Text>
-            <Text style={styles.secondaryText}>Jujuy, Argentina (XX)</Text>
+            <Text style={styles.secondaryText}>Jujuy, Argentina (21)</Text>
             </View>
 
             <View style={styles.card}>
