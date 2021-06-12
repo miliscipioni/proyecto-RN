@@ -27,7 +27,7 @@ export class AboutUs extends Component {
           {/* <Image style={styles.cardImage} source={{uri: require('@img/')}}></Image> */}
             <Text style={styles.principalText}> Sofia Mollon </Text>
             <Text style={styles.secondaryText}>smollon@udesa.edu.ar</Text>
-            <Text style={styles.secondaryText}> Lugar de nacimiento (XX)</Text>
+            <Text style={styles.secondaryText}> Buenos Aires, Argentina (21)</Text>
             </View>
 
             <View style={styles.card}>
