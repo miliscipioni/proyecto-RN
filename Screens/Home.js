@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {Component} from 'react'; 
 import {getData} from '../src/api/RandomUsers';
 import {Card} from '../src/components/Card';
+import {Header} from '../src/components/Header';
 import {
   Text, 
   View, 
@@ -42,13 +43,9 @@ export class Home extends Component {
       return(
 
         <View style={styles.container}> 
-          <View style={styles.navbar}>
-              <Text style={styles.navbarDetails}>Home
-        {/*     <Image style= {styles.imgNavbar} source= {require('@img/icono_buscador.png')}></Image> 
-            <Image style= {styles.imgNavbar} source= {require('@img/icono_papelera.png')}></Image> */}
-              </Text>
-          </View>
-
+          
+        <Header/>
+        
         <View style={styles.flatlistContainer}> 
             <FlatList
               data={this.state.users}

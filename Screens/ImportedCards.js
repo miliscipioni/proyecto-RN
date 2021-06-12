@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import Import from './Import';
 
-class ImportedCards extends Component { 
+export class ImportedCards extends Component { 
 
   constructor(){
     super();
@@ -33,9 +33,13 @@ class ImportedCards extends Component {
 
   render () { 
       const values = this.state.importedUsers.map( item =>
-          <Text key = {item.login.uuid}>
-              {item.name.first}
-          </Text>)
+         <Card
+         elemento = {item}
+         />
+         )
+         {/*<Text key = {this.props.elemento.login.uuid}>
+              {this.props.elemento.name.first}
+      </Text> */}
           
       return (
           <View>
@@ -58,4 +62,4 @@ class ImportedCards extends Component {
 }
 
 //export {ImportedCards}
-export default ImportedCards;
+//export default ImportedCards;

@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {Component} from 'react'; 
 import { Alert, TouchableOpacity, Text, View } from 'react-native';
-class Import extends Component { 
+export class Import extends Component { 
 
     constructor(){
       super();
@@ -50,4 +50,4 @@ class Import extends Component {
   }
   
   //export {Import}
-  export default Import;
+  // export default Import;
