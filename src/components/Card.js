@@ -36,10 +36,10 @@ class Card extends Component {
             </View>
         </TouchableOpacity> 
 
-            <Modal visible={this.state.showModal} animationType="slide" transparent={true}>
+            <Modal visible={this.state.showModal} animationType="fade" transparent={true}>
                 <View style={styles.modalContainer}>
                     <View style={styles.modal}>
-                        <Image style={styles.cardImage} source={{uri: this.props.elemento.picture.large}}></Image>
+                        <Image style={styles.cardImageModal} source={{uri: this.props.elemento.picture.large}}></Image>
                         <Text style= {styles.principalText}>{this.props.elemento.name.first} {this.props.elemento.name.last} </Text>
                         <Text style= {styles.secondaryText}>{this.props.elemento.email}</Text> 
                         <Text style={styles.secondaryText}>{this.props.elemento.dob.date.substring(0,10)} ({this.props.elemento.dob.age} años)</Text> 
@@ -53,6 +53,16 @@ class Card extends Component {
                         <View style={styles.modalCloseBtnContainer}>
                         <Text style={styles.modalCloseBtn}>X</Text>
                         </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.btnComentar}>
+                                <Text style={styles.modalBtnText}>COMENTAR</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.btnBorrar}>
+                                <Text style={styles.modalBtnText}>BORRAR</Text>
+                            </View>
                         </TouchableOpacity>
                     </View>
                 </View>
