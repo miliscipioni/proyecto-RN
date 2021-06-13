@@ -67,7 +67,25 @@ btnDescripcion: {
     alignSelf: 'flex-start',
     paddingLeft: 5,
     fontWeight: 'bold',
-}
+},
+
+modalContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+},
+
+modal: {
+    height: "70%",
+    backgroundColor: "white",
+    alignItems:'center',
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+
+},
+
+btnModal : {
+
+},
 
 
 
