@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {Component} from 'react'; 
 import {getData} from '../src/api/RandomUsers';
-import {Card} from '../src/components/Card';
+import Card from '../src/components/Card';
 import {Header} from '../src/components/Header';
 import {
   Text, 

@@ -5,7 +5,7 @@ import {
   Text, 
   View, 
 } from 'react-native';
-import {ImportedCards} from '../Screens/ImportedCards';
+import ImportedCards from '../Screens/ImportedCards';
 import {Import} from '../Screens/Import';
 import {AboutUs} from '../Screens/AboutUs';
 import * as Font from 'expo-font';

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {Component} from 'react'; 
-import { Alert, TouchableOpacity, Text, View } from 'react-native';
+import { Alert, TouchableOpacity, Text, View, Image } from 'react-native';
 export class Import extends Component { 
 
     constructor(){

@@ -1,14 +1,18 @@
 import React, {Component} from 'react'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Card from "../src/components/Card";
+import Card from '../src/components/Card';
+import {Header} from '../src/components/Header';
 import {
   Text, 
   View, 
+  FlatList,
   TouchableOpacity,
+  Image,
 } from 'react-native';
-import Import from './Import';
+import {Import} from './Import';
+import {styles} from '../src/Styles';
 
-export class ImportedCards extends Component { 
+class ImportedCards extends Component { 
 
   constructor(){
     super();
@@ -18,9 +22,23 @@ export class ImportedCards extends Component {
   }
 
   componentDidMount(){
-
+    this.getData()
+    .then( (usuarios) => {
+      console.log(usuarios),
+      this.setState({importedUsers: usuarios});
+    });
   }
 
+  renderItem = ({item}) => {
+    return (
+      <Card
+      elemento = {item}
+      />
+    )
+  }
+
+  keyExtractor = (item, idx) => idx.toString()
+  
   async getData(){
       try{
           const resultado = await AsyncStorage.getItem("Users");
@@ -33,25 +51,43 @@ export class ImportedCards extends Component {
   }
 
   render () { 
-      const values = this.state.importedUsers.map( item =>
+      {/*const values = this.state.importedUsers.map( item =>
         <Card key = {item.login.uuid} elemento = {item}/>)
         // <Text key = {item.login.uuid}>
         //  {item.name.first}
-        // </Text>)
+      // </Text>) */}
           
       return (
-          <View>
-              <Text style = {{height: 100}}>relleno</Text>
-              <Text>Mostramos los valores importados</Text>
-              {values}
-              <TouchableOpacity onPress={this.getData.bind(this)}>
+          <View style={styles.container}>
+
+            <Header/>
+
+            <View style={styles.importedAlert}>
+            <Text style={styles.importedAlertBtn}>X</Text>
+            <Text style={styles.importedAlertText}> ¡Genial! Se importaron exitosamente X tarjetas </Text> 
+              
+            </View>
+
+            <View style={styles.flatlistContainer}> 
+            <FlatList
+              data={this.state.importedUsers}
+              keyExtractor={this.keyExtractor}
+              renderItem={this.renderItem}
+              numColumns={2}
+            />
+
+            
+            </View>
+             {/* {values} */} 
+
+              <TouchableOpacity  onPress={this.getData.bind(this)}>
                   <View>
-                      <Text>Recuperar datos</Text>
+                      <Text style={{color: 'white'}} >Recuperar datos</Text>
                   </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={ () => this.setState({importedUsers: [] })}>
                   <View>
-                      <Text>Borrar datos importados</Text>
+                      <Text style={{color: 'white'}} >Borrar datos importados</Text>
                   </View>
               </TouchableOpacity>
           </View>
@@ -60,4 +96,4 @@ export class ImportedCards extends Component {
 }
 
 //export {ImportedCards}
-//export default ImportedCards;
+export default ImportedCards;
