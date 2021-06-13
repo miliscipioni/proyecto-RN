@@ -101,10 +101,24 @@ modal: {
     borderTopLeftRadius: 20,
 
 },
-
-btnModal : {
-
+modalCloseBtn: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    alignSelf: 'center',
 },
+btnModal : {
+    position: 'absolute',
+    bottom: 440, 
+    left: 380,
+},
+modalCloseBtnContainer: {
+    backgroundColor: '#6200E8',
+    width: 20,
+    height: 20,
+    borderRadius: 15,
+    
+}
 
 
 

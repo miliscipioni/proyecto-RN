@@ -49,7 +49,11 @@ class Card extends Component {
                         <Text style= {styles.secondaryText}>Código postal: {this.props.elemento.location.postcode}</Text>
                         <Text style= {styles.secondaryText}>Fecha de Registro: {this.props.elemento.registered.date.substring(0, 10)}</Text>
                         <Text style= {styles.secondaryText}>Teléfono: {this.props.elemento.phone}</Text>
-                        <Button title = "X" onPress= {() => this.setState({showModal: false})} style={styles.btnModal}></Button>
+                        <TouchableOpacity style={styles.btnModal} onPress= {() => this.setState({showModal: false})}>
+                        <View style={styles.modalCloseBtnContainer}>
+                        <Text style={styles.modalCloseBtn}>X</Text>
+                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </Modal>
