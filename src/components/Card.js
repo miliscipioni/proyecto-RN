@@ -23,11 +23,19 @@ class Card extends Component {
     render() {
         return (
             <View style= {styles.card}>
-            <Image style={styles.cardImage} source={{uri: this.props.elemento.picture.large}}></Image>
+           <Image style={styles.cardImage} source={{uri: this.props.elemento.picture.large}}></Image>
             <Text style= {styles.principalText}>{this.props.elemento.name.first} {this.props.elemento.name.last} </Text>
             <Text style= {styles.secondaryText}>{this.props.elemento.email}</Text> 
             <Text style={styles.secondaryText}>{this.props.elemento.dob.date.substring(0,10)} ({this.props.elemento.dob.age} años)</Text> 
-            <Button title = "Ver más" onPress= {() => this.setState({showModal: true})} style={styles.btnDescripcion}/>
+        <TouchableOpacity onPress= {() => this.setState({showModal: true})} style={styles.btnDescripcion}>
+            <View style={styles.moreContainer}>
+            <Text  style={styles.btnDescripcion}>Ver más</Text>
+            <View style={styles.btnMasBorde}>
+            <Text  style={styles.btnMas}>+</Text>
+            </View>
+            </View>
+        </TouchableOpacity> 
+
             <Modal visible={this.state.showModal} animationType="slide" transparent={true}>
                 <View style={styles.modalContainer}>
                     <View style={styles.modal}>

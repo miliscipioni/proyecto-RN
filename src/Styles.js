@@ -68,7 +68,26 @@ btnDescripcion: {
     paddingLeft: 5,
     fontWeight: 'bold',
 },
-
+btnMasBorde: {
+    borderWidth: 2,
+    borderStyle: 'solid',
+    borderColor: '#5E72E4',
+    width: 18,
+    height: 18,
+    borderRadius: 12,
+    position: 'absolute',
+    left: 60,
+},
+btnMas: {
+    color: '#5E72E4',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    fontSize: 10,
+},
+moreContainer: {
+  marginLeft: 2,
+  marginTop: 5,  
+},
 modalContainer: {
     flex: 1,
     justifyContent: 'flex-end',

@@ -12,7 +12,7 @@ import {
 import {Import} from './Import';
 import {styles} from '../src/Styles';
 
-class ImportedCards extends Component { 
+export class ImportedCards extends Component { 
 
   constructor(){
     super();
@@ -23,9 +23,9 @@ class ImportedCards extends Component {
 
   componentDidMount(){
     this.getData()
-    .then( (usuarios) => {
-      console.log(usuarios),
-      this.setState({importedUsers: usuarios});
+    .then( (users) => {
+      console.log(users),
+      this.setState({importedUsers: users});
     });
   }
 
@@ -96,4 +96,4 @@ class ImportedCards extends Component {
 }
 
 //export {ImportedCards}
-export default ImportedCards;
+//export default ImportedCards;
