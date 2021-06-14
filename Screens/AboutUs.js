@@ -7,6 +7,7 @@ import {
   View, 
   TouchableOpacity,
   ScrollView,
+  Image,
 } from 'react-native';
 
 export class AboutUs extends Component { 
@@ -16,22 +17,22 @@ export class AboutUs extends Component {
             <Header/>
             <View style={styles.flatlistContainer}>
             <ScrollView>
-            <View style={styles.card}>
+            <View style={styles.cardAboutUs}>
           {/* <Image style={styles.cardImage} source={{uri: require('@img/')}}></Image> */}
             <Text style={styles.principalText}> Candela Flores </Text>
             <Text style={styles.secondaryText}>cflores@udesa.edu.ar</Text>
             <Text style={styles.secondaryText}>Jujuy, Argentina (21)</Text>
             </View>
 
-            <View style={styles.card}>
+            <View style={styles.cardAboutUs}>
           {/* <Image style={styles.cardImage} source={{uri: require('@img/')}}></Image> */}
             <Text style={styles.principalText}> Sofia Mollon </Text>
             <Text style={styles.secondaryText}>smollon@udesa.edu.ar</Text>
             <Text style={styles.secondaryText}> Buenos Aires, Argentina (21)</Text>
             </View>
 
-            <View style={styles.card}>
-          {/* <Image style={styles.cardImage} source={{uri: require('@img/')}}></Image> */}
+            <View style={styles.cardAboutUs}>
+           <Image style={styles.cardImage} source={{uri: 'https://media.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif'}}></Image> 
             <Text style={styles.principalText}> Milagros Scipioni</Text>
             <Text style={styles.secondaryText}> mscipioni@udesa.edu.ar</Text>
             <Text style={styles.secondaryText}> Misiones, Argentina (21)</Text>

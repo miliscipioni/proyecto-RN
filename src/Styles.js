@@ -23,12 +23,28 @@ navbar: {
     margin: 15, 
     fontWeight: 'bold'
 },
-imgNavbar: {
+searchIcon: {
     position: 'absolute',
     display: 'flex',
-    width: 40,
-    height: 40,
+    width: 65,
+    height: 65,
+    right: 10,
+    top: 10,
 }, 
+burguerIcon: {
+    position: 'absolute',
+    display: 'flex',
+    width: 70,
+    height: 70
+},
+/* binIcon: {
+    position: 'absolute',
+    display: 'flex',
+    width: 65,
+    height: 65,
+    right: 60,
+    top: 10,
+}, */
 
 flatlistContainer: {
     flex: 1,
@@ -155,6 +171,30 @@ btnBorrar: {
     justifyContent: 'center',
     alignSelf: 'center',
     borderRadius: 10
+}, 
+cardAboutUs: {
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    width: 300,
+    height: 280,
+    margin: 10,
+    position: 'relative',
+},
+burguerButton: {
+    width: 40,
+    height: 40,
+    backgroundColor: '#1C265C',
+    borderRadius: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 160,
+    top: 20,
+
+
+},
+burguerText: {
+    fontSize: 30,
+
 }
 
 
