@@ -181,21 +181,22 @@ cardAboutUs: {
     position: 'relative',
 },
 burguerButton: {
-    width: 40,
+    width: 50,
     height: 40,
     backgroundColor: '#1C265C',
-    borderRadius: 100,
+
     alignItems: 'center',
     justifyContent: 'center',
     right: 160,
     top: 20,
-
-
 },
 burguerText: {
     fontSize: 30,
 
-}
+}, 
+burguerContainer: {
+    position: 'absolute'
+},
 
 
 

@@ -13,20 +13,20 @@ import {styles} from '../Styles';
 export class Header extends Component {
     render() {
         return (
-            <View style={styles.navbar}>
-            <View style={{position: 'absolute'}}>
-              <TouchableOpacity onPress={ () => this.props.navigation.openDrawer()}>
+            <View style={styles.navbar}> 
+            <View style={styles.burguerContainer}>
+              <TouchableOpacity onPress= { () => this.props.navigation.openDrawer()}>
               <View style={styles.burguerButton}>
               <Image style={styles.burguerIcon} source= {require('@img/icono_sandwich.png')}></Image> 
               </View>
               </TouchableOpacity>
             </View>
-              <Text style={styles.navbarDetails}>Home  </Text>
+           <Text style={styles.navbarDetails}>Home  </Text> 
               <Image style= {styles.searchIcon} source= {require('@img/icono_buscador.png')}></Image> 
-           {/*  <Image style= {styles.binIcon} source= {require('@img/icono_papelera.png')}></Image> */}
+       {/* <Image style= {styles.binIcon} source= {require('@img/icono_papelera.png')}></Image>  */}
            
              
-              </View>
+              </View> 
         )
     }
 }

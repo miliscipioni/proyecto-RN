@@ -26,6 +26,14 @@ class App extends Component {
        drawerPosition="left"
        drawerType= "slide"
        overlayColor= "rgba(25, 25, 112, 0.4)"
+       drawerStyle={{
+        backgroundColor: '#221C5C',
+       }}
+       drawerContentOptions={{
+         activeTintColor: '#000000', 
+         activeBackgroundColor: '#BAFF94', 
+         inactiveTintColor: '#ffffff'
+       }}
        >
         
         <Drawer.Screen name='Home' component={Home}></Drawer.Screen>
