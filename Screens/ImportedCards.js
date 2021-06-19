@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Card from '../src/components/Card';
 import {Header} from '../src/components/Header';
+import {getData} from  '../src/api/RandomUsers';
 import {
   Text, 
   View, 
   FlatList,
   TouchableOpacity,
   Image,
+  Button
 } from 'react-native';
 import {Import} from './Import';
 import {styles} from '../src/Styles';
@@ -22,11 +24,7 @@ export class ImportedCards extends Component {
   }
 
   componentDidMount(){
-    this.getData()
-    .then( (users) => {
-      console.log(users),
-      this.setState({importedUsers: users});
-    });
+    
   }
 
   renderItem = ({item}) => {
@@ -49,19 +47,20 @@ export class ImportedCards extends Component {
           console.log(error)
       }
   }
-
+  
   render () { 
       {/*const values = this.state.importedUsers.map( item =>
         <Card key = {item.login.uuid} elemento = {item}/>)
         // <Text key = {item.login.uuid}>
         //  {item.name.first}
       // </Text>) */}
-          
+      //   console.log(this.state.importedUsers.length);
       return (
           <View style={styles.container}>
 
             <Header/>
-
+            
+               
             <View style={styles.importedAlert}>
             <Text style={styles.importedAlertBtn}>X</Text>
             <Text style={styles.importedAlertText}> ¡Genial! Se importaron exitosamente X tarjetas </Text> 
@@ -70,6 +69,7 @@ export class ImportedCards extends Component {
 
             <View style={styles.flatlistContainer}> 
             <FlatList
+           
               data={this.state.importedUsers}
               keyExtractor={this.keyExtractor}
               renderItem={this.renderItem}
@@ -90,7 +90,9 @@ export class ImportedCards extends Component {
                       <Text style={{color: 'white'}} >Borrar datos importados</Text>
                   </View>
               </TouchableOpacity>
+              
           </View>
+         
     ) 
   }
 }

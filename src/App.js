@@ -40,7 +40,7 @@ class App extends Component {
         <Drawer.Screen name='Contactos importados' component={ImportedCards}></Drawer.Screen>
         <Drawer.Screen name='Papelera' component={Bin}></Drawer.Screen>
         <Drawer.Screen name='Sobre nosotras' component={AboutUs}></Drawer.Screen>
-        <Drawer.Screen name='Importar' component={Import}></Drawer.Screen>
+       {/* <Drawer.Screen name='Importar' component={Import}></Drawer.Screen> */}
         
 
        </Drawer.Navigator>

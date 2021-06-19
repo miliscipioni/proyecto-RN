@@ -4,6 +4,7 @@ import {getData} from '../src/api/RandomUsers';
 import Card from '../src/components/Card';
 import {Header} from '../src/components/Header';
 import {
+  Alert,
   Text, 
   View, 
   Image, 
@@ -27,6 +28,17 @@ export class Home extends Component {
   });
    
   }
+
+  async storeData(){
+    try{
+        const jsonUsers = JSON.stringify(this.state.users);
+        await AsyncStorage.setItem("Users", jsonUsers);
+        Alert.alert("Datos almacenados correctamente")
+    }
+    catch(error){
+        console.log(error)
+    }
+}
 
   renderItem = ({item}) => {
     return (
@@ -54,6 +66,12 @@ export class Home extends Component {
               numColumns={2}
             
             />
+          
+          <TouchableOpacity onPress={this.storeData.bind(this)}>
+                    <View>
+                        <Text style={{color: 'white', fontSize: 20}}>Guardar datos</Text>
+                    </View>
+                </TouchableOpacity>
         </View>
 
      

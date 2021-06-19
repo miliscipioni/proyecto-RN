@@ -102,12 +102,12 @@ btnMas: {
 },
 moreContainer: {
   marginLeft: 2,
-  marginTop: 5,  
+  marginTop: 5,
 },
 modalContainer: {
     flex: 1,
     justifyContent: 'flex-end',
-    backgroundColor: 'rgba(0,0,0,0.2)'
+    backgroundColor: 'rgba(0,0,0,0.2)', 
 },
 
 modal: {
@@ -170,8 +170,28 @@ btnBorrar: {
     height: 30,
     justifyContent: 'center',
     alignSelf: 'center',
-    borderRadius: 10
+    borderRadius: 10, 
+    shadowColor: 'rgba(0, 0, 0, 0.8)'
 }, 
+btnImportar: {
+    backgroundColor: '#6200E8',
+    position: 'absolute',
+    width: 75,
+    height: 20,
+    left: 100,
+    bottom: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius: 20, 
+    shadowColor: 'rgba(0, 0, 0, 0.8)'
+
+},
+modalBtnImportar: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    alignSelf: 'center', 
+    fontSize: 12,
+},
 cardAboutUs: {
     backgroundColor: '#ffffff',
     borderRadius: 10,

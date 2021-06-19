@@ -18,7 +18,7 @@ export class Import extends Component {
         })
     }
 
-    async storeData(){
+  async storeData(){
         try{
             const jsonUsers = JSON.stringify(this.state.users);
             await AsyncStorage.setItem("Users", jsonUsers);
@@ -27,7 +27,7 @@ export class Import extends Component {
         catch(error){
             console.log(error)
         }
-    }
+    } 
   
     render () { 
         const values = this.state.users.map( item =>
