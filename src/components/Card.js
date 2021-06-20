@@ -43,19 +43,42 @@ class Card extends Component {
            
            
 
-            <Modal visible={this.state.showModal} animationType="fade" transparent={true}>
+            <Modal visible={this.state.showModal} animationType="" transparent={true}>
                 <View style={styles.modalContainer}>
                     <View style={styles.modal}>
                         <Image style={styles.cardImageModal} source={{uri: this.props.elemento.picture.large}}></Image>
-                        <Text style= {styles.principalText}>{this.props.elemento.name.first} {this.props.elemento.name.last} </Text>
-                        <Text style= {styles.secondaryText}>{this.props.elemento.email}</Text> 
-                        <Text style={styles.secondaryText}>{this.props.elemento.dob.date.substring(0,10)} ({this.props.elemento.dob.age} años)</Text> 
-                        <Text style= {styles.secondaryText}>Calle y número: {this.props.elemento.location.street.name} N˚{this.props.elemento.location.street.number}</Text>
-                        <Text style= {styles.secondaryText}>Ciudad/Estado: {this.props.elemento.location.city}/{this.props.elemento.location.state}</Text>
-                        <Text style= {styles.secondaryText}>País: {this.props.elemento.location.country}</Text>
-                        <Text style= {styles.secondaryText}>Código postal: {this.props.elemento.location.postcode}</Text>
-                        <Text style= {styles.secondaryText}>Fecha de Registro: {this.props.elemento.registered.date.substring(0, 10)}</Text>
-                        <Text style= {styles.secondaryText}>Teléfono: {this.props.elemento.phone}</Text>
+                        <Text style= {styles.principalTextModal}>{this.props.elemento.name.first} {this.props.elemento.name.last} </Text>
+                        <Text style= {styles.secondaryTextModal}>
+                            <Text style={styles.detailsTitleModal}> Email:  </Text>
+                            {this.props.elemento.email}</Text> 
+                        <Text style={styles.secondaryTextModal}>
+                            <Text style={styles.detailsTitleModal}>Fecha de nacimiento: </Text>
+                            {this.props.elemento.dob.date.substring(0,10)} ({this.props.elemento.dob.age} años)
+                        </Text> 
+                        <Text style= {styles.secondaryTextModal}>
+                            <Text style={styles.detailsTitleModal}>Calle y número: </Text>
+                            {this.props.elemento.location.street.name} N˚{this.props.elemento.location.street.number}
+                        </Text>
+                        <Text style= {styles.secondaryTextModal}>
+                            <Text style={styles.detailsTitleModal}> Ciudad/Estado: </Text>
+                            {this.props.elemento.location.city}/{this.props.elemento.location.state}
+                        </Text>
+                        <Text style= {styles.secondaryTextModal}> 
+                            <Text style={styles.detailsTitleModal}> País: </Text>
+                            {this.props.elemento.location.country}
+                        </Text>
+                        <Text style= {styles.secondaryTextModal}>
+                            <Text style={styles.detailsTitleModal}> Código postal: </Text>
+                            {this.props.elemento.location.postcode}
+                        </Text>
+                        <Text style= {styles.secondaryTextModal}> 
+                            <Text style= {styles.detailsTitleModal}> Fecha de Registro: </Text>
+                             {this.props.elemento.registered.date.substring(0, 10)}
+                        </Text>
+                        <Text style= {styles.secondaryTextModal}> 
+                            <Text style= {styles.detailsTitleModal}> Teléfono: </Text> 
+                            {this.props.elemento.phone}
+                        </Text>
                         <TouchableOpacity style={styles.btnModal} onPress= {() => this.setState({showModal: false})}>
                         <View style={styles.modalCloseBtnContainer}>
                         <Text style={styles.modalCloseBtn}>X</Text>

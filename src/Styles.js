@@ -52,22 +52,25 @@ flatlistContainer: {
     alignItems: 'center',
 }, 
 principalText: {
-    fontSize: 20,
+    fontSize: 22,
     color: '#000000',
     justifyContent: 'center',
     alignSelf: 'center',
     padding: 5,
+    fontWeight: 'bold',
 },
 card: { 
     backgroundColor: '#ffffff',
     borderRadius: 10,
-    width: 190,
+    width: 200,
     height: 280,
-    margin: 10,
+    marginRight: 3,
+    marginLeft: 3,
+    marginTop: 15,
     position: 'relative',
 }, 
 cardImage: {
-    width: 190,
+    width: 200,
     height: 140,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
@@ -75,9 +78,26 @@ cardImage: {
     alignSelf: 'center',
 },
 secondaryText: {
-    fontSize: 12,
+    fontSize: 14,
     padding: 5,
 }, 
+principalTextModal: {
+    fontSize: 24,
+    padding: 5,
+    fontWeight: 'bold'
+
+},
+secondaryTextModal: {
+    fontSize: 16,
+    padding: 5,
+    justifyContent: 'flex-start',
+    alignSelf: 'flex-start',
+    marginStart: 10,
+}, 
+detailsTitleModal: {
+    fontWeight: 'bold',
+    fontSize: 16,
+},
 btnDescripcion: {
     color: '#5E72E4',
     alignSelf: 'flex-start',
@@ -109,10 +129,10 @@ modalContainer: {
     justifyContent: 'flex-end',
     backgroundColor: 'rgba(0,0,0,0.2)', 
 },
-
 modal: {
-    height: "70%",
-    backgroundColor: "white",
+    width: "100%",
+    height: "90%",
+    backgroundColor: "#FEF5E7",
     alignItems:'center',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
@@ -128,7 +148,7 @@ modalCloseBtn: {
 },
 btnModal : {
     position: 'absolute',
-    bottom: 440, 
+    bottom: 560, 
     left: 380,
 },
 modalCloseBtnContainer: {
@@ -140,7 +160,7 @@ modalCloseBtnContainer: {
 }, 
 cardImageModal: {
     width: 250,
-    height: 160,
+    height: 250,
     marginTop: 10,
     borderRadius: 10,
 }, 

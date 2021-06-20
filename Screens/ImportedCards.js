@@ -82,7 +82,7 @@ export class ImportedCards extends Component {
 
               <TouchableOpacity  onPress={this.getData.bind(this)}>
                   <View>
-                      <Text style={{color: 'white'}} >Recuperar datos</Text>
+                      <Text style={{color: 'white'}} >¡Mirá tus contactos importados!</Text>
                   </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={ () => this.setState({importedUsers: [] })}>
