@@ -1,26 +1,30 @@
 import React, {Component} from 'react'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {getData} from  '../api/RandomUsers';
 import {
   Text, 
   View, 
-  Image, 
-  FlatList, 
+  FlatList,
   TouchableOpacity,
+  Image,
   Button
 } from 'react-native';
 import {styles} from '../Styles';
 
 export class Header extends Component {
+
+
     render() {
         return (
           <View style={styles.navbar}> 
-            <View style={styles.burguerContainer}>
+  
+            <View style={styles.burguerContainer}> 
               <TouchableOpacity onPress= { () => this.props.navigation.openDrawer()}>
                 <View style={styles.burguerButton}>
                   <Image style={styles.burguerIcon} source= {require('@img/icono_sandwich.png')}></Image> 
                 </View>
               </TouchableOpacity>
-            </View>
+            </View> 
 
             <Text style={styles.navbarDetails}>Home  </Text> 
 

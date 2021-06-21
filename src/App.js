@@ -13,7 +13,10 @@ import {ImportedCards} from '../Screens/ImportedCards';
 import {Import} from '../Screens/Import';
 import {AboutUs} from '../Screens/AboutUs';
 import {Bin} from '../Screens/Bin';
+import {Header} from '../src/components/Header';
+import {Card} from '../src/components/Card';
 import * as Font from 'expo-font';
+
 
 const Drawer = createDrawerNavigator();
 class App extends Component { 
@@ -22,7 +25,7 @@ class App extends Component {
     return (
      <NavigationContainer>
        <Drawer.Navigator
-       initialRouteName="Home"
+       initialRouteName="Contactos importados"
        drawerPosition="left"
        drawerType= "slide"
        overlayColor= "rgba(25, 25, 112, 0.4)"
@@ -35,7 +38,6 @@ class App extends Component {
          inactiveTintColor: '#ffffff'
        }}
        >
-        
         <Drawer.Screen name='Home' component={Home}></Drawer.Screen>
         <Drawer.Screen name='Contactos importados' component={ImportedCards}></Drawer.Screen>
         <Drawer.Screen name='Papelera' component={Bin}></Drawer.Screen>

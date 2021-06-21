@@ -9,7 +9,8 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
-  Button
+  Button,
+  Modal,
 } from 'react-native';
 import {Import} from './Import';
 import {styles} from '../src/Styles';
@@ -19,7 +20,8 @@ export class ImportedCards extends Component {
   constructor(){
     super();
     this.state ={
-        importedUsers: []
+        importedUsers: [], 
+        showModal: false,
     }
   }
 
@@ -60,13 +62,6 @@ export class ImportedCards extends Component {
 
             <Header/>
             
-               
-            <View style={styles.importedAlert}>
-            <Text style={styles.importedAlertBtn}>X</Text>
-            <Text style={styles.importedAlertText}> ¡Genial! Se importaron exitosamente X tarjetas </Text> 
-              
-            </View>
-
             <View style={styles.flatlistContainer}> 
             <FlatList
            
@@ -80,17 +75,28 @@ export class ImportedCards extends Component {
             </View>
              {/* {values} */} 
 
-              <TouchableOpacity  onPress={this.getData.bind(this)}>
-                  <View>
-                      <Text style={{color: 'white'}} >¡Mirá tus contactos importados!</Text>
-                  </View>
-              </TouchableOpacity>
+              
               <TouchableOpacity onPress={ () => this.setState({importedUsers: [] })}>
                   <View>
                       <Text style={{color: 'white'}} >Borrar datos importados</Text>
                   </View>
               </TouchableOpacity>
-              
+              <TouchableOpacity onPress={() => this.setState({showModal: true})}>
+                <Text style={{fontSize: 30, color: 'white'}}>Show modal</Text>
+              </TouchableOpacity>
+              <Modal visible={this.state.showModal}
+              transparent={true}
+              animationType= "slide">
+                <View style={styles.modalContainerImportedCards}>
+                <TouchableOpacity onPress={this.getData.bind(this)} >
+                <View style={styles.modalImportedCards}>
+                <Text style={styles.modalImportedCardsText}>¡Genial! Se importaron exitosamente X tarjetas</Text>
+                  <Text style={styles.closeButtonModalImportedCards}
+                        onPress={ () => this.setState({showModal: false})} >X</Text>
+                </View>
+                </TouchableOpacity>
+                </View>
+              </Modal>
           </View>
          
     ) 

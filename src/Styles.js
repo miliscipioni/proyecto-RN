@@ -228,7 +228,8 @@ burguerButton: {
     alignItems: 'center',
     justifyContent: 'center',
     right: 160,
-    top: 20,
+    top: 20, 
+   
 },
 burguerText: {
     fontSize: 30,
@@ -237,6 +238,49 @@ burguerText: {
 burguerContainer: {
     position: 'absolute'
 },
+
+burguerButtonPrueba: {
+    width: 80,
+    height: 80,
+    backgroundColor: 'pink',
+    borderRadius: 100,
+    alignItems: 'center',
+    justifyContent: 'center'
+},
+burguerTextPrueba: {
+    fontSize: 30,
+    color: 'white',
+}, 
+modalContainerImportedCards:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.1)'
+  
+
+}, 
+modalImportedCardsText: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    margin: 10, 
+},
+modalImportedCards: {
+    backgroundColor: '#FF2E63', 
+    width: 300,
+    height: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20, 
+    elevation: 20,
+    shadowColor: '#FF3361',
+}, 
+closeButtonModalImportedCards: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    position: 'absolute',
+    right: 20,
+    top: 10,
+}
 
 
 

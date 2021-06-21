@@ -10,6 +10,7 @@ import {
   Image, 
   FlatList, 
   TouchableOpacity,
+  Button,
 } from 'react-native';
 import {styles} from '../src/Styles';
 export class Home extends Component { 
@@ -57,7 +58,7 @@ export class Home extends Component {
         <View style={styles.container}> 
           
         <Header/>
-        
+      
         <View style={styles.flatlistContainer}> 
             <FlatList
               data={this.state.users}
