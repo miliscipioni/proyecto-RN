@@ -11,13 +11,15 @@ import {
   FlatList, 
   TouchableOpacity,
   Button,
+  TextInput,
 } from 'react-native';
 import {styles} from '../src/Styles';
 export class Home extends Component { 
   constructor() {
     super();
     this.state = {
-      users: []
+      users: [], 
+      textHandler: '',
     }
   }
 
@@ -28,6 +30,14 @@ export class Home extends Component {
     this.setState({users: usuarios});
   });
    
+  }
+
+  agregarContactos() {
+    getData() 
+    .then((usuarios)=> {
+    usuarios = this.state.users.concat(usuarios)
+    this.setState({users: usuarios})
+      })
   }
 
   async storeData(){
@@ -59,6 +69,28 @@ export class Home extends Component {
           
         <Header/>
       
+
+      <Text style={styles.textCantUsuarios}>¡Hola! ¿Cuántas tarjetas te gustaría visualizar?</Text>
+    {/*  <Text style={{fontSize: 12, color: 'white'}}>Handler: {this.state.textHandler}</Text>
+      <Text style={{fontSize: 12, color: 'white'}}>Texto: {this.state.texto}</Text> */}
+      <TextInput style={styles.InputCantUsuarios}
+                placeholder='Ingresar cantidad de tarjetas'
+                keyboardType= 'numeric'
+                onChangeText={ text => this.setState({textHandler: text})}
+
+      ></TextInput>
+      <TouchableOpacity
+      onPress={() => this.setState({texto: this.state.textHandler})}
+      >
+        <View style={styles.containerbtnAgregarTarjetas}>
+          <Text style={styles.btnAgregarTarjetas}
+          onPress={() => this.agregarContactos(this.state.textHandler)}>
+            AGREGAR 
+          </Text>
+        </View>
+      </TouchableOpacity>
+
+
         <View style={styles.flatlistContainer}> 
             <FlatList
               data={this.state.users}

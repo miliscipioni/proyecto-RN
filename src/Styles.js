@@ -280,6 +280,39 @@ closeButtonModalImportedCards: {
     position: 'absolute',
     right: 20,
     top: 10,
+}, 
+InputCantUsuarios: {
+    width: '100%', 
+    height: 40,
+    borderRadius: 5,
+    borderWidth: 2,
+    borderStyle: 'solid',
+    backgroundColor: 'white'
+}, 
+btnAgregarTarjetas: {
+    fontSize: 16, 
+    color: '#FFFFFF',
+    justifyContent: 'center', 
+    textAlign: 'center',
+    fontWeight: 'bold', 
+
+}, 
+containerbtnAgregarTarjetas: {
+    backgroundColor: '#FF2E63',
+    width: '100%', 
+    height: 30,
+    borderRadius: 5,
+    margin: 2, 
+    justifyContent: 'center',
+    alignItems: 'center',
+}, 
+textCantUsuarios: {
+    color: '#05BC97',
+    fontSize: 17,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    margin: 20,
+
 }
 
 

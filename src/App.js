@@ -25,7 +25,7 @@ class App extends Component {
     return (
      <NavigationContainer>
        <Drawer.Navigator
-       initialRouteName="Contactos importados"
+       initialRouteName="Home"
        drawerPosition="left"
        drawerType= "slide"
        overlayColor= "rgba(25, 25, 112, 0.4)"
