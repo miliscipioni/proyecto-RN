@@ -22,6 +22,7 @@ export class ImportedCards extends Component {
     this.state ={
         importedUsers: [], 
         showModal: false,
+        setItem: null,
     }
   }
 
@@ -35,6 +36,10 @@ export class ImportedCards extends Component {
       elemento = {item}
       />
     )
+  }
+
+  showModal() {
+    this.setState({showModal: true})
   }
 
   keyExtractor = (item, idx) => idx.toString()
@@ -59,9 +64,13 @@ export class ImportedCards extends Component {
       //   console.log(this.state.importedUsers.length);
       return (
           <View style={styles.container}>
-
+           
             <Header/>
-            
+           
+             <TouchableOpacity onPress={() => this.showModal()}>
+              <Text>ABRETE SESAMO</Text>
+              </TouchableOpacity>
+              
             <View style={styles.flatlistContainer}> 
             <FlatList
            
@@ -81,9 +90,9 @@ export class ImportedCards extends Component {
                       <Text style={{color: 'white'}} >Borrar datos importados</Text>
                   </View>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => this.setState({showModal: true})}>
+             {/* <TouchableOpacity onPress={() => }>
                 <Text style={{fontSize: 30, color: 'white'}}>Show modal</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
               <Modal visible={this.state.showModal}
               transparent={true}
               animationType= "slide">
