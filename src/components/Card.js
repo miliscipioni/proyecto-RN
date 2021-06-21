@@ -8,17 +8,23 @@ import {
   Button,
   FlatList, 
   TouchableOpacity,
+  TextInput
 } from 'react-native';
 import {styles} from '../Styles';
 
 class Card extends Component {
-
     constructor(){
         super();
         this.state ={
             showModal: false,
+            comentario: " ",
         }
       }
+
+    agregarComentario() {
+        getData() 
+        .then((com)=>{this.setState({comenario: com})});
+    }
 
     render() {
         return (
@@ -84,11 +90,18 @@ class Card extends Component {
                         <Text style={styles.modalCloseBtn}>X</Text>
                         </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+
+                        <Text style= {styles.secondaryTextModal}> 
+                            <Text style= {styles.detailsTitleModal}> {this.state.comentario} </Text>                            
+                        </Text>
+
+                        <TextInput style={styles.InputCantUsuarios} placeholder='Ingresar comentario'></TextInput>
+                        <TouchableOpacity onPress= {() => this.agregarComentario}>
                             <View style={styles.btnComentar}>
-                                <Text style={styles.modalBtnText}>COMENTAR</Text>
+                                <Text style={styles.modalBtnText} >COMENTAR</Text>
                             </View>
                         </TouchableOpacity>
+
                         <TouchableOpacity>
                             <View style={styles.btnBorrar}>
                                 <Text style={styles.modalBtnText}>BORRAR</Text>
