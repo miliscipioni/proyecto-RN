@@ -16,8 +16,8 @@ import {
 } from 'react-native';
 import {styles} from '../src/Styles';
 export class Home extends Component { 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       users: [], 
       textHandler: '',
@@ -26,7 +26,7 @@ export class Home extends Component {
   }
 
   componentDidMount() {
-  getData()
+  getData(5)
   .then( (usuarios) => {
     console.log(usuarios),
     this.setState({users: usuarios});
@@ -34,8 +34,8 @@ export class Home extends Component {
    
   }
 
-  agregarContactos() {
-    getData() 
+  agregarContactos = () => {
+    getData(this.state.textHandler) 
     .then((usuarios)=> {
     usuarios = this.state.users.concat(usuarios)
     this.setState({users: usuarios})
@@ -75,8 +75,10 @@ export class Home extends Component {
         
         <View style={styles.container}> 
         <ScrollView>
-        <Header/>
-      
+
+       <Header
+        openDrawer = {this.props.navigation.openDrawer}
+       /> 
 
       <Text style={styles.textCantUsuarios}>¡Hola! ¿Cuántas tarjetas te gustaría visualizar?</Text>
     {/*  <Text style={{fontSize: 12, color: 'white'}}>Handler: {this.state.textHandler}</Text>
@@ -87,11 +89,10 @@ export class Home extends Component {
                 onChangeText={ text => this.setState({textHandler: text})}
 
       ></TextInput>
-      <TouchableOpacity
-      onPress={() => this.setState({texto: this.state.textHandler})} onPress={() => this.agregarContactos(this.state.textHandler)}
-      >
+
+      <TouchableOpacity onPress={() => this.agregarContactos()} >
         <View style={styles.containerbtnAgregarTarjetas} >
-          <Text style={styles.btnAgregarTarjetas}>
+          <Text style={styles.btnAgregarTarjetas} >
             AGREGAR 
           </Text>
         </View>
