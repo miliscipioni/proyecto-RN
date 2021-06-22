@@ -23,31 +23,31 @@ class App extends Component {
 
   render () { 
     return (
-    //  <NavigationContainer>
-    //    <Drawer.Navigator
-    //    initialRouteName="Home"
-    //    drawerPosition="left"
-    //    drawerType= "slide"
-    //    overlayColor= "rgba(25, 25, 112, 0.4)"
-    //    drawerStyle={{
-    //     backgroundColor: '#221C5C',
-    //    }}
-    //    drawerContentOptions={{
-    //      activeTintColor: '#000000', 
-    //      activeBackgroundColor: '#BAFF94', 
-    //      inactiveTintColor: '#ffffff'
-    //    }}
-    //    >
-    //     <Drawer.Screen name='Home' component={Home}></Drawer.Screen>
-    //     <Drawer.Screen name='Contactos importados' component={ImportedCards}></Drawer.Screen>
-    //     <Drawer.Screen name='Papelera' component={Bin}></Drawer.Screen>
-    //     <Drawer.Screen name='Sobre nosotras' component={AboutUs}></Drawer.Screen>
-    //    {/* <Drawer.Screen name='Importar' component={Import}></Drawer.Screen> */}
+     <NavigationContainer>
+       <Drawer.Navigator
+       initialRouteName="Home"
+       drawerPosition="left"
+       drawerType= "slide"
+       overlayColor= "rgba(25, 25, 112, 0.4)"
+       drawerStyle={{
+        backgroundColor: '#221C5C',
+       }}
+       drawerContentOptions={{
+         activeTintColor: '#000000', 
+         activeBackgroundColor: '#BAFF94', 
+         inactiveTintColor: '#ffffff'
+       }}
+       >
+        <Drawer.Screen name='Home' component={Home}></Drawer.Screen>
+        <Drawer.Screen name='Contactos importados' component={ImportedCards}></Drawer.Screen>
+        <Drawer.Screen name='Papelera' component={Bin}></Drawer.Screen>
+        <Drawer.Screen name='Sobre nosotras' component={AboutUs}></Drawer.Screen>
+       {/* <Drawer.Screen name='Importar' component={Import}></Drawer.Screen> */}
         
 
-    //    </Drawer.Navigator>
-    //  </NavigationContainer>
-    <ImportedCards/>
+       </Drawer.Navigator>
+     </NavigationContainer>
+    // <ImportedCards/>
     ) 
   }
 }

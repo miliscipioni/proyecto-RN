@@ -108,11 +108,11 @@ class Card extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress= {this.props.onDelete.bind(this, this.props.elemento.id)}>
+                            {/* <TouchableOpacity onPress= {this.props.onDelete.bind(this, this.props.elemento.id)}>
                                 <View style={styles.btnBorrar}>
                                     <Text style={styles.modalBtnText}>BORRAR</Text>
                                 </View>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
                     </View>
                 </Modal>

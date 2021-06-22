@@ -43,7 +43,7 @@ export class ImportedCards extends Component {
     return (
       <Card
       elemento = {item}
-      onDelete = {this.borrarTarjeta.bind(this)}
+      // onDelete = {this.borrarTarjeta.bind(this)}
       />
     )
   }
@@ -65,15 +65,15 @@ export class ImportedCards extends Component {
       }
   }
   
-  borrarTarjeta(idTarjeta){
-    var nuevoArray = this.state.importedUsers.filter((tarjeta) => {
-      return tarjeta.id !== idTarjeta 
-    })
-    this.setState({
-      importedUsers: nuevoArray
-    })
-    console.log(nuevoArray);
-  };
+  // borrarTarjeta(idTarjeta){
+  //   var nuevoArray = this.state.importedUsers.filter((tarjeta) => {
+  //     return tarjeta.id !== idTarjeta 
+  //   })
+  //   this.setState({
+  //     importedUsers: nuevoArray
+  //   })
+  //   console.log(nuevoArray);
+  // };
 
   render () { 
       {/*const values = this.state.importedUsers.map( item =>
