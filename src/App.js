@@ -47,7 +47,10 @@ class App extends Component {
 
        </Drawer.Navigator>
      </NavigationContainer>
-    // <ImportedCards/>
+
+    // <Bin/>
+    // <ImportedCards></ImportedCards>
+    
     ) 
   }
 }

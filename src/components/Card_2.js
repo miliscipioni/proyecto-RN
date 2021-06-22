@@ -14,7 +14,7 @@ import {
 import {styles} from '../Styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-class Card extends Component {
+class Card_2 extends Component {
     constructor(){
         super();
         this.state ={
@@ -22,6 +22,8 @@ class Card extends Component {
             comentario: " ",
         }
       }
+
+
 
     render() {
         return (
@@ -106,6 +108,7 @@ class Card extends Component {
                                 </View>
                             </TouchableOpacity>
 
+                            <Button title = "BORRAR" onPress= {this.props.onDelete.bind(this, this.props.elemento.id)}></Button>
                         </View>
                     </View>
                 </Modal>
@@ -114,4 +117,4 @@ class Card extends Component {
     }
 }
 
-export default Card;
+export default Card_2;

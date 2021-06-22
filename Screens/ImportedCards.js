@@ -1,6 +1,6 @@
 import React, {Component} from 'react'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Card from '../src/components/Card';
+import Card_2 from '../src/components/Card_2';
 import {Header} from '../src/components/Header';
 import {getData} from  '../src/api/RandomUsers';
 import {
@@ -11,6 +11,7 @@ import {
   Image,
   Button,
   Modal,
+  Alert,
 } from 'react-native';
 import {Import} from './Import';
 import {styles} from '../src/Styles';
@@ -23,6 +24,7 @@ export class ImportedCards extends Component {
         importedUsers: [], 
         showModal: false,
         setItem: null,
+        tarjetasBorradas: [],
     }
   }
 
@@ -41,16 +43,16 @@ export class ImportedCards extends Component {
 
   renderItem = ({item}) => {
     return (
-      <Card
+      <Card_2
       elemento = {item}
-      // onDelete = {this.borrarTarjeta.bind(this)}
+      onDelete = {this.borrarTarjeta.bind(this)}
       />
     )
   }
 
-  showModal() {
-    this.setState({showModal: true})
-  }
+  // showModal() {
+  //   this.setState({showModal: true})
+  // }
 
   keyExtractor = (item, idx) => idx.toString()
   
@@ -63,17 +65,37 @@ export class ImportedCards extends Component {
       catch(error){
           console.log(error)
       }
-  }
-  
-  // borrarTarjeta(idTarjeta){
-  //   var nuevoArray = this.state.importedUsers.filter((tarjeta) => {
-  //     return tarjeta.id !== idTarjeta 
-  //   })
-  //   this.setState({
-  //     importedUsers: nuevoArray
-  //   })
-  //   console.log(nuevoArray);
-  // };
+  } 
+
+  borrarTarjeta(idTarjeta){
+    //si tarjeta.id y idTarjeta son distintos (true) deja ese item, caso contrario, osea que tarjeta.id y idTarjeta sean iguales (false) sacame la tarjeta.
+    let nuevoArray = this.state.importedUsers.filter((tarjeta) => {
+        return tarjeta.id !== idTarjeta 
+    });
+
+    let tarjetasBorradas = this.state.importedUsers.filter((tarjeta) => {
+      return tarjeta.id === idTarjeta 
+    });
+
+    this.setState({
+      importedUsers: nuevoArray,
+    //Haciendo esto se guarda un unico usuario en la papelera, tengo que lograr que los usuarios borrados se sumen al array de tarjetasBorradas.
+      tarjetasBorradas: tarjetasBorradas,
+    })
+    
+  };
+
+  async papeleraStorage(){
+    try{
+        const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
+        await AsyncStorage.setItem("Papelera", jsonUsers);
+        Alert.alert("Datos almacenados correctamente");
+        console.log(this.state.tarjetasBorradas);
+    }
+    catch(error){
+        console.log(error)
+    }
+} 
 
   render () { 
       {/*const values = this.state.importedUsers.map( item =>
@@ -87,10 +109,10 @@ export class ImportedCards extends Component {
            
             <Header/>
            
-             <TouchableOpacity onPress={() => this.showModal()}>
+             {/* <TouchableOpacity onPress={() => this.showModal()}>
               <Text style = {{color: 'white'}} >ABRETE SESAMO</Text>
               </TouchableOpacity>
-              
+               */}
             <View style={styles.flatlistContainer}> 
             <FlatList
            
@@ -99,26 +121,27 @@ export class ImportedCards extends Component {
               renderItem={this.renderItem}
               numColumns={2}
             />
-
-            
             </View>
+
+            <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
+                    <View>
+                        <Text style = {{color: 'white'}}>Guardar datos borrados</Text>
+                    </View>
+            </TouchableOpacity>
+
              {/* {values} */} 
-             {/* <TouchableOpacity onPress={this.getDato.bind(this)}>
+             <TouchableOpacity onPress={this.getData.bind(this)}>
                   <View>
                       <Text style={{color: 'white'}} >Recuperar datos</Text>
                   </View>
-              </TouchableOpacity> */}
-              
-              <TouchableOpacity onPress={ () => this.setState({importedUsers: [] })}>
-                  <View>
-                      <Text style={{color: 'white'}} >Borrar datos importados</Text>
-                  </View>
               </TouchableOpacity>
+              
+              
               
              {/* <TouchableOpacity onPress={() => }>
                 <Text style={{fontSize: 30, color: 'white'}}>Show modal</Text>
               </TouchableOpacity> */}
-              <Modal visible={this.state.showModal}
+              {/* <Modal visible={this.state.showModal}
               transparent={true}
               animationType= "slide">
                 <View style={styles.modalContainerImportedCards}>
@@ -130,7 +153,7 @@ export class ImportedCards extends Component {
                 </View>
                 </TouchableOpacity>
                 </View>
-              </Modal>
+              </Modal> */}
           </View>
          
     ) 
