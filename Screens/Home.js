@@ -26,7 +26,7 @@ export class Home extends Component {
   }
 
   componentDidMount() {
-  getData(5)
+  getData(4)
   .then( (usuarios) => {
     console.log(usuarios),
     this.setState({users: usuarios});

@@ -14,7 +14,9 @@ export class AboutUs extends Component {
   render () {
       return(
         <View style={styles.container}> 
-            <Header/>
+            <Header
+            openDrawer = {this.props.navigation.openDrawer}
+            />
             <View style={styles.flatlistContainer}>
             <ScrollView>
             <View style={styles.cardAboutUs}>
