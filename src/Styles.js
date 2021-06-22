@@ -181,6 +181,20 @@ btnComentar: {
     borderRadius: 10, 
     shadowColor: 'rgba(0, 0, 0, 0.8)',
 }, 
+
+textoComentar:{
+    backgroundColor: '#6200E8',
+    position: 'absolute', 
+    right: 20,
+    marginTop: 5,
+    width: 90,
+    height: 30,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius: 10, 
+    shadowColor: 'rgba(0, 0, 0, 0.8)',
+},
+
 btnBorrar: {
     backgroundColor: '#6200E8',
     left: 40,

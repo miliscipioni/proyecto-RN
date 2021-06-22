@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
   Button,
   TextInput,
+  ScrollView,
 } from 'react-native';
 import {styles} from '../src/Styles';
 export class Home extends Component { 
@@ -20,6 +21,7 @@ export class Home extends Component {
     this.state = {
       users: [], 
       textHandler: '',
+      comentario: " ",
     }
   }
 
@@ -60,13 +62,19 @@ export class Home extends Component {
 
   keyExtractor = (item, idx) => idx.toString()
 
+  agregarComentario() {
+    let nuevoComentario = this.state.comentario.bind()
+    this.setState({
+        comentario: nuevoComentario
+    })
+};
 
 
   render () {
       return(
-
+        
         <View style={styles.container}> 
-          
+        <ScrollView>
         <Header/>
       
 
@@ -80,11 +88,10 @@ export class Home extends Component {
 
       ></TextInput>
       <TouchableOpacity
-      onPress={() => this.setState({texto: this.state.textHandler})}
+      onPress={() => this.setState({texto: this.state.textHandler})} onPress={() => this.agregarContactos(this.state.textHandler)}
       >
-        <View style={styles.containerbtnAgregarTarjetas}>
-          <Text style={styles.btnAgregarTarjetas}
-          onPress={() => this.agregarContactos(this.state.textHandler)}>
+        <View style={styles.containerbtnAgregarTarjetas} >
+          <Text style={styles.btnAgregarTarjetas}>
             AGREGAR 
           </Text>
         </View>
@@ -97,18 +104,20 @@ export class Home extends Component {
               keyExtractor= { this.keyExtractor }
               renderItem= { this.renderItem }
               numColumns={2}
+              onComentar= {this.agregarComentario.bind(this)}
             
             />
           
           <TouchableOpacity onPress={this.storeData.bind(this)}>
-                    <View>
-                        <Text style={{color: 'white', fontSize: 20}}>Guardar datos</Text>
-                    </View>
-                </TouchableOpacity>
+            <View>
+                <Text style={{color: 'white', fontSize: 20}}>Guardar datos</Text>
+            </View>
+          </TouchableOpacity>
         </View>
 
-     
-       </View>
+      </ScrollView>
+      </View>
+       
       )
    }
 }
