@@ -27,13 +27,23 @@ export class ImportedCards extends Component {
   }
 
   componentDidMount(){
-    
+    // async function getDato(){
+    //       try{
+    //           const resultado = await AsyncStorage.getItem("Users");
+    //           this.setState({importedUsers: JSON.parse(resultado)});
+    //           return resultado;
+    //       }
+    //       catch(error){
+    //           console.log(error)
+    //       }
+    //   }
   }
 
   renderItem = ({item}) => {
     return (
       <Card
       elemento = {item}
+      onDelete = {this.borrarTarjeta.bind(this)}
       />
     )
   }
@@ -55,6 +65,16 @@ export class ImportedCards extends Component {
       }
   }
   
+  borrarTarjeta(idTarjeta){
+    var nuevoArray = this.state.importedUsers.filter((tarjeta) => {
+      return tarjeta.id !== idTarjeta 
+    })
+    this.setState({
+      importedUsers: nuevoArray
+    })
+    console.log(nuevoArray);
+  };
+
   render () { 
       {/*const values = this.state.importedUsers.map( item =>
         <Card key = {item.login.uuid} elemento = {item}/>)
@@ -68,7 +88,7 @@ export class ImportedCards extends Component {
             <Header/>
            
              <TouchableOpacity onPress={() => this.showModal()}>
-              <Text>ABRETE SESAMO</Text>
+              <Text style = {{color: 'white'}} >ABRETE SESAMO</Text>
               </TouchableOpacity>
               
             <View style={styles.flatlistContainer}> 
@@ -83,13 +103,18 @@ export class ImportedCards extends Component {
             
             </View>
              {/* {values} */} 
-
+             {/* <TouchableOpacity onPress={this.getDato.bind(this)}>
+                  <View>
+                      <Text style={{color: 'white'}} >Recuperar datos</Text>
+                  </View>
+              </TouchableOpacity> */}
               
               <TouchableOpacity onPress={ () => this.setState({importedUsers: [] })}>
                   <View>
                       <Text style={{color: 'white'}} >Borrar datos importados</Text>
                   </View>
               </TouchableOpacity>
+              
              {/* <TouchableOpacity onPress={() => }>
                 <Text style={{fontSize: 30, color: 'white'}}>Show modal</Text>
               </TouchableOpacity> */}

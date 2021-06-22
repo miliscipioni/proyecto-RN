@@ -183,7 +183,6 @@ btnComentar: {
 }, 
 btnBorrar: {
     backgroundColor: '#6200E8',
-    position: 'absolute', 
     left: 40,
     marginTop: 5,
     width: 90,
