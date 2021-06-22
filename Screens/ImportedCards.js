@@ -18,8 +18,8 @@ import {styles} from '../src/Styles';
 
 export class ImportedCards extends Component { 
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state ={
         importedUsers: [], 
         showModal: false,
@@ -107,7 +107,9 @@ export class ImportedCards extends Component {
       return (
           <View style={styles.container}>
            
-            <Header/>
+            <Header
+            openDrawer = {this.props.navigation.openDrawer}
+            />
            
              {/* <TouchableOpacity onPress={() => this.showModal()}>
               <Text style = {{color: 'white'}} >ABRETE SESAMO</Text>

@@ -7,7 +7,6 @@ container: {
     width: '100%'
 }, 
 navbar: {
-    display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#1C265C',
@@ -17,7 +16,6 @@ navbar: {
     
 }, 
  navbarDetails: {
-     display: 'flex',
     color: '#05BC97',
     fontSize: 30, 
     margin: 15, 
@@ -35,7 +33,8 @@ burguerIcon: {
     position: 'absolute',
     display: 'flex',
     width: 70,
-    height: 70
+    height: 70, 
+    zIndex: 100,
 },
 /* binIcon: {
     position: 'absolute',
@@ -159,8 +158,8 @@ modalCloseBtnContainer: {
 
 }, 
 cardImageModal: {
-    width: 250,
-    height: 250,
+    width: 210,
+    height: 210,
     marginTop: 10,
     borderRadius: 10,
 }, 
@@ -249,7 +248,8 @@ burguerText: {
 
 }, 
 burguerContainer: {
-    position: 'absolute'
+    position: 'absolute',
+    zIndex: 90,
 },
 
 burguerButtonPrueba: {

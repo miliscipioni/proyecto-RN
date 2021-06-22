@@ -38,10 +38,10 @@ class App extends Component {
          inactiveTintColor: '#ffffff'
        }}
        >
-        <Drawer.Screen name='Home' component={Home}></Drawer.Screen>
-        <Drawer.Screen name='Contactos importados' component={ImportedCards}></Drawer.Screen>
-        <Drawer.Screen name='Papelera' component={Bin}></Drawer.Screen>
-        <Drawer.Screen name='Sobre nosotras' component={AboutUs}></Drawer.Screen>
+        <Drawer.Screen name='Home' component={Home}/>
+        <Drawer.Screen name='Contactos importados' component={ImportedCards}/>
+        <Drawer.Screen name='Papelera' component={Bin}/>
+        <Drawer.Screen name='Sobre nosotras' component={AboutUs}/>
        {/* <Drawer.Screen name='Importar' component={Import}></Drawer.Screen> */}
         
 
