@@ -75,9 +75,10 @@ export class Home extends Component {
 
   buscador(text) {
     let busqueda = this.state.users.filter ((usuario) => {
-      return usuario.name.first.toLowerCase() === text.toLowerCase() ||
-      usuario.name.last.toLowerCase() === text.toLowerCase() ||
-      parseInt(usuario.dob.age) === parseInt(text)
+      return usuario.name.first.toLowerCase().includes(text.toLowerCase()) ||
+      usuario.name.last.toLowerCase().includes(text.toLowerCase()) || 
+      usuario.location.country.toLowerCase().includes(text.toLowerCase()) ||
+      usuario.location.city.toLowerCase().includes(text.toLowerCase())
     })
     this.setState ({
         users: busqueda
@@ -95,7 +96,7 @@ export class Home extends Component {
         openDrawer = {this.props.navigation.openDrawer}
        /> 
 
-        <TextInput style={styles.inputBusqueda} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.filter(text)}> </TextInput>
+        <TextInput style={styles.inputBusqueda} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
         <Image style= {styles.searchIcon} source= {require('@img/icono_buscador.png')}></Image>
 
       <Text style={styles.textCantUsuarios}>¡Hola! ¿Cuántas tarjetas te gustaría visualizar?</Text>
