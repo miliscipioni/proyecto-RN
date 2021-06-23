@@ -19,15 +19,32 @@ navbar: {
     color: '#05BC97',
     fontSize: 30, 
     margin: 15, 
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginTop: 50,
 },
+
+buscar: {
+    color: '#05BC97',
+    fontSize: 30, 
+    margin: 10, 
+    fontWeight: 'bold',
+    marginTop: 80,
+},
+
+goBack: {
+    color: '#05BC97',
+    fontSize: 20, 
+    margin: 10, 
+    marginTop: 500,
+},
+
 searchIcon: {
     position: 'absolute',
     display: 'flex',
     width: 65,
     height: 65,
     right: 10,
-    top: 10,
+    top: -61,
 }, 
 burguerIcon: {
     position: 'absolute',
@@ -77,8 +94,10 @@ cardImage: {
     alignSelf: 'center',
 },
 secondaryText: {
-    fontSize: 14,
+    fontSize: 18,
     padding: 5,
+    justifyContent: 'center',
+    alignSelf: 'center',
 }, 
 principalTextModal: {
     fontSize: 24,
@@ -326,7 +345,8 @@ textCantUsuarios: {
     alignSelf: 'center',
     margin: 20,
 
-}
+},
+
 
 
 

@@ -15,6 +15,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {styles} from '../src/Styles';
+
 export class Home extends Component { 
   constructor(props) {
     super(props);
@@ -42,6 +43,14 @@ export class Home extends Component {
       })
   }
 
+
+  agregarComentario() {
+    let nuevoComentario = this.state.comentario
+    this.setState({
+      comentario: nuevoComentario
+    })
+  };
+
   async storeData(){
     try{
         const jsonUsers = JSON.stringify(this.state.users);
@@ -56,18 +65,13 @@ export class Home extends Component {
   renderItem = ({item}) => {
     return (
       <Card
-      elemento = {item}/>
+      elemento = {item}
+      onComentar = {this.agregarComentario.bind(this)}
+      />
     )
   }
 
   keyExtractor = (item, idx) => idx.toString()
-
-  agregarComentario() {
-    let nuevoComentario = this.state.comentario.bind()
-    this.setState({
-        comentario: nuevoComentario
-    })
-};
 
 
   render () {
@@ -80,9 +84,14 @@ export class Home extends Component {
         openDrawer = {this.props.navigation.openDrawer}
        /> 
 
+        <TouchableOpacity onPress= {()=> this.props.navigation.navigate("Buscador")}>
+          <Image style= {styles.searchIcon} source= {require('@img/icono_buscador.png')}></Image>
+        </TouchableOpacity>
+
       <Text style={styles.textCantUsuarios}>¡Hola! ¿Cuántas tarjetas te gustaría visualizar?</Text>
     {/*  <Text style={{fontSize: 12, color: 'white'}}>Handler: {this.state.textHandler}</Text>
       <Text style={{fontSize: 12, color: 'white'}}>Texto: {this.state.texto}</Text> */}
+
       <TextInput style={styles.InputCantUsuarios}
                 placeholder='Ingresar cantidad de tarjetas'
                 keyboardType= 'numeric'
@@ -105,7 +114,6 @@ export class Home extends Component {
               keyExtractor= { this.keyExtractor }
               renderItem= { this.renderItem }
               numColumns={2}
-              onComentar= {this.agregarComentario.bind(this)}
             
             />
           
@@ -115,6 +123,7 @@ export class Home extends Component {
             </View>
           </TouchableOpacity>
         </View>
+
 
       </ScrollView>
       </View>

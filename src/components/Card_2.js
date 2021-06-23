@@ -100,7 +100,7 @@ class Card_2 extends Component {
 
                             <TextInput style={styles.InputCantUsuarios} placeholder='Ingresar comentario' multiline numberOfLines={2}></TextInput>
                           
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress= {this.props.onComentar.bind(this, this.props.elemento.id)}>
                                 <View style={styles.btnComentar}>
                                     <Pressable>
                                         <Text style={styles.modalBtnText}>COMENTAR</Text>
