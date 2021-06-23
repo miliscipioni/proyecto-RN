@@ -15,20 +15,22 @@ export class Bin extends Component {
     super();
     this.state ={
         tarjetasBorradas: [], 
+        remove_msg: "",
     }
   } 
 
-  // keyExtractor = (item, idx) => idx.toString();
+  keyExtractor = (item, idx) => idx.toString();
 
-  // renderItem = ({item}) => {
-  //   return (
-  //     <DeleteUsers 
-  //     elemento = {item}
-  //     />
-  //   )
-  // }
+  renderItem = ({item}) => {
+    return (
+      <DeleteUsers 
+      elemento = {item}
+      onDelete = {this.eliminaciónDefinitiva.bind(this)}
+      />
+    )
+  };
 
-  async getDato(){
+  async getData(){
     try{
         const resultado = await AsyncStorage.getItem("Papelera");
         this.setState({tarjetasBorradas: JSON.parse(resultado)});
@@ -39,37 +41,48 @@ export class Bin extends Component {
     }
   }
 
+  eliminaciónDefinitiva(idTarjeta){
+    let nuevoArray = this.state.tarjetasBorradas.filter((tarjeta) => {
+        return tarjeta.id !== idTarjeta 
+    });
+    this.setState({
+      tarjetasBorradas: nuevoArray,
+    })
+  };
+
+  async removeValue(key){
+    try {
+      await AsyncStorage.removeItem(key);
+      this.setState({remove_msg: "se borro exitosamente"})
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render () {
-
-    const values = this.state.tarjetasBorradas.map( item =>
-      <DeleteUsers key = {item.login.uuid} elemento = {item}/>)
-
     return(
-      <View> 
-        <Text style = {{width:"100%", marginTop: "50%"}}>PAPELERA DE RECICLAJE</Text>
+      <View style={styles.container}> 
+        
+        <Text style={styles.navbarDetails}>Papelera de reciclaje</Text>
 
-        {/* <View style={styles.flatlistContainer}> 
-          <FlatList
-            data={this.state.tarjetasBorradas}
-            keyExtractor={this.keyExtractor}
-            renderItem={this.renderItem}
-            numColumns={1}
-          />
-        </View> */}
+        <FlatList
+          data={this.state.tarjetasBorradas}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
+        />
 
-        {values}
+        <TouchableOpacity onPress={() => this.removeValue("Papelera")}>
+          <Text style={{color: 'white'}}>Limpiar almacenamiento</Text>
+        </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.getDato.bind(this)}>
-          <View>
-            <Text>Ver datos borrados</Text>
-          </View>
+        <TouchableOpacity onPress={this.getData.bind(this)}>
+            <Text style={{color: 'white'}}>Ver datos borrados</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={ () => this.setState({tarjetasBorradas: [] })}>
-          <View>
-            <Text style={{color: 'red'}}>BORRAR DE FORMA PERMANENTE</Text>
-          </View>
+            <Text style={{color: 'red'}}> VACIAR PAPELERA </Text>
         </TouchableOpacity>
+
       </View>
     )
   }

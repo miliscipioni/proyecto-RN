@@ -12,7 +12,6 @@ import {
   Pressable
 } from 'react-native';
 import {styles} from '../Styles';
-import Home from "../../Screens/Home"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
