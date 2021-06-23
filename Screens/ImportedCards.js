@@ -30,16 +30,6 @@ export class ImportedCards extends Component {
   }
 
   componentDidMount(){
-    // async function getDato(){
-    //       try{
-    //           const resultado = await AsyncStorage.getItem("Users");
-    //           this.setState({importedUsers: JSON.parse(resultado)});
-    //           return resultado;
-    //       }
-    //       catch(error){
-    //           console.log(error)
-    //       }
-    //   }
   }
 
   renderItem = ({item}) => {
@@ -70,18 +60,20 @@ export class ImportedCards extends Component {
   } 
 
   borrarTarjeta(idTarjeta){
+
     //si tarjeta.id y idTarjeta son distintos (true) deja ese item, caso contrario, osea que tarjeta.id y idTarjeta sean iguales (false) sacame la tarjeta.
     let nuevoArray = this.state.importedUsers.filter((tarjeta) => {
         return tarjeta.id !== idTarjeta 
     });
 
-    let tarjetasBorradas = this.state.importedUsers.filter((tarjeta) => {
+    let tarjetaBorrada = this.state.importedUsers.filter((tarjeta) => {
       return tarjeta.id === idTarjeta 
     });
 
+    let tarjetasBorradas = this.state.tarjetasBorradas.concat(tarjetaBorrada);
+
     this.setState({
       importedUsers: nuevoArray,
-    //Haciendo esto se guarda un unico usuario en la papelera, tengo que lograr que los usuarios borrados se sumen al array de tarjetasBorradas.
       tarjetasBorradas: tarjetasBorradas,
     })
     
