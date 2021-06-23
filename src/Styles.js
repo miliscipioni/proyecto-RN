@@ -31,20 +31,13 @@ buscar: {
     marginTop: 80,
 },
 
-goBack: {
-    color: '#05BC97',
-    fontSize: 20, 
-    margin: 10, 
-    marginTop: 500,
-},
-
 searchIcon: {
     position: 'absolute',
     display: 'flex',
     width: 65,
     height: 65,
     right: 10,
-    top: -61,
+    top: 165,
 }, 
 burguerIcon: {
     position: 'absolute',
@@ -321,6 +314,17 @@ InputCantUsuarios: {
     borderStyle: 'solid',
     backgroundColor: 'white'
 }, 
+
+inputBusqueda:{
+    width: '100%', 
+    height: 40,
+    width: 300,
+    borderRadius: 5,
+    borderWidth: 2,
+    borderStyle: 'solid',
+    backgroundColor: 'white'
+},
+
 btnAgregarTarjetas: {
     fontSize: 16, 
     color: '#FFFFFF',

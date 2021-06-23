@@ -12,7 +12,6 @@ import {Import} from '../Screens/Import';
 import {AboutUs} from '../Screens/AboutUs';
 import {Bin} from '../Screens/Bin';
 import {Header} from '../src/components/Header';
-import {Buscar} from '../Screens/Buscar';
 import {Card} from '../src/components/Card';
 import * as Font from 'expo-font';
 import {createStackNavigator} from "@react-navigation/stack"
@@ -42,7 +41,6 @@ class App extends Component {
        }}
        >
         <Drawer.Screen name='Home' component={Home}/>
-        <Drawer.Screen name = "Buscador" component= {Buscar}/>
         <Drawer.Screen name='Contactos importados' component={ImportedCards}/>
         <Drawer.Screen name='Papelera' component={Bin}/>
         <Drawer.Screen name='Sobre nosotras' component={AboutUs}/>
