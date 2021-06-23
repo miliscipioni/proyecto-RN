@@ -73,6 +73,17 @@ export class Home extends Component {
 
   keyExtractor = (item, idx) => idx.toString()
 
+  buscador(text) {
+    let busqueda = this.state.users.filter ((usuario) => {
+      return usuario.name.first.toLowerCase() === text.toLowerCase() ||
+      usuario.name.last.toLowerCase() === text.toLowerCase() ||
+      parseInt(usuario.dob.age) === parseInt(text)
+    })
+    this.setState ({
+        users: busqueda
+    })
+    console.log(busqueda)
+}
 
   render () {
       return(
@@ -84,9 +95,8 @@ export class Home extends Component {
         openDrawer = {this.props.navigation.openDrawer}
        /> 
 
-        <TouchableOpacity onPress= {()=> this.props.navigation.navigate("Buscador")}>
-          <Image style= {styles.searchIcon} source= {require('@img/icono_buscador.png')}></Image>
-        </TouchableOpacity>
+        <TextInput style={styles.inputBusqueda} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.filter(text)}> </TextInput>
+        <Image style= {styles.searchIcon} source= {require('@img/icono_buscador.png')}></Image>
 
       <Text style={styles.textCantUsuarios}>¡Hola! ¿Cuántas tarjetas te gustaría visualizar?</Text>
     {/*  <Text style={{fontSize: 12, color: 'white'}}>Handler: {this.state.textHandler}</Text>
