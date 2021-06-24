@@ -18,11 +18,10 @@ export class ImportedCards extends Component {
   constructor(props){
     super(props);
     this.state ={
-        importedUsers: [], 
-        showModal: false,
-        setItem: null,
-        tarjetasBorradas: [],
-        comentario: " ",
+      importedUsers: [], 
+      showModal: false,
+      setItem: null,
+      tarjetasBorradas: [],
     }
   }
 
@@ -35,7 +34,6 @@ export class ImportedCards extends Component {
       <Card_2
       elemento = {item}
       onDelete = {this.borrarTarjeta.bind(this)}
-      onComentar ={this.agregarComentario.bind(this)}
       />
     )
   }
@@ -74,13 +72,6 @@ export class ImportedCards extends Component {
     this.setState({
       importedUsers: nuevoArray,
       tarjetasBorradas: tarjetasBorradas,
-    })
-  };
-
-  agregarComentario() {
-    let nuevoComentario = this.state.comentario
-    this.setState({
-      comentario: nuevoComentario
     })
   };
 

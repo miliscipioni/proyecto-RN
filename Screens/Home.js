@@ -21,6 +21,7 @@ export class Home extends Component {
     super(props);
     this.state = {
       users: [], 
+      busqueda: [],
       textHandler: '',
       comentario: " ",
     }
@@ -43,14 +44,6 @@ export class Home extends Component {
       })
   }
 
-
-  agregarComentario() {
-    let nuevoComentario = this.state.comentario
-    this.setState({
-      comentario: nuevoComentario
-    })
-  };
-
   async storeData(){
     try{
         const jsonUsers = JSON.stringify(this.state.users);
@@ -66,7 +59,7 @@ export class Home extends Component {
     return (
       <Card
       elemento = {item}
-      onComentar = {this.agregarComentario.bind(this)}
+      onComentar = {this.comentarTarjeta.bind(this)}
       />
     )
   }
@@ -85,6 +78,20 @@ export class Home extends Component {
     })
     console.log(busqueda)
 }
+
+
+  // let nuevoArray = this.state.importedUsers.filter((tarjeta) => {
+  //     return tarjeta.id !== idTarjeta,
+  // });
+
+comentarTarjeta() {
+  let nuevoComentario = this.state.comentario
+  this.setState({
+    comentario: nuevoComentario
+  })
+  console.log(nuevoComentario)
+};
+
 
   render () {
       return(
