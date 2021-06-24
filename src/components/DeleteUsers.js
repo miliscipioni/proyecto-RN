@@ -25,7 +25,7 @@ class DeleteUsers extends Component {
                         <TouchableOpacity style= {styles.deleteBtn} onPress={this.props.onDelete.bind(this, this.props.elemento.id)}>
                             <Text style= {styles.textBtn}>Borrar</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style= {styles.recoverBtn} onPress={this.props.onDelete.bind(this, this.props.elemento.id)}>
+                        <TouchableOpacity style= {styles.recoverBtn} onPress={this.props.onRecover.bind(this, this.props.elemento.id)}>
                             <Text style= {styles.textBtn}>Restaurar</Text>
                         </TouchableOpacity>
                     </View>

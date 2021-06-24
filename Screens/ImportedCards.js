@@ -23,6 +23,7 @@ export class ImportedCards extends Component {
         setItem: null,
         tarjetasBorradas: [],
         comentario: " ",
+        updateUsers: [],
     }
   }
 
@@ -58,12 +59,18 @@ export class ImportedCards extends Component {
   } 
 
   borrarTarjeta(idTarjeta){
-
+    
     //si tarjeta.id y idTarjeta son distintos (true) deja ese item, caso contrario, osea que tarjeta.id y idTarjeta sean iguales (false) sacame la tarjeta.
     let nuevoArray = this.state.importedUsers.filter((tarjeta) => {
-        return tarjeta.id !== idTarjeta,
-        Alert.alert("Recuerda actualizar los datos!")
+        return tarjeta.id !== idTarjeta
+        
     });
+
+    // Alert.alert("Datos actualizados", [{
+    //   text: "Guardar en papelera y actualizar data",
+    //   onPress: () => console.log("Cancel Pressed"),
+    //   // onPress: () => this.papeleraStorage.bind(this)
+    // }] )
 
     let tarjetaBorrada = this.state.importedUsers.filter((tarjeta) => {
       return tarjeta.id === idTarjeta 
@@ -73,8 +80,21 @@ export class ImportedCards extends Component {
 
     this.setState({
       importedUsers: nuevoArray,
+      updateUsers: nuevoArray,
       tarjetasBorradas: tarjetasBorradas,
     })
+  };
+
+  async updateStorage(){
+    try{
+        const jsonUsers = JSON.stringify(this.state.updateUsers);
+        await AsyncStorage.setItem("Users", jsonUsers);
+        Alert.alert("Datos actualizados");
+        console.log(this.state.updateUsers);
+    }
+    catch(error){
+        console.log(error)
+    }
   };
 
   agregarComentario() {
@@ -83,7 +103,6 @@ export class ImportedCards extends Component {
       comentario: nuevoComentario
     })
   };
-
 
   async papeleraStorage(){
     try{
@@ -127,6 +146,12 @@ export class ImportedCards extends Component {
             </View>
 
             <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
+                    <View>
+                        <Text style = {{color: 'white'}}>Mandar datos eliminados a papelera</Text>
+                    </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={this.updateStorage.bind(this)}>
                     <View>
                         <Text style = {{color: 'white'}}>Actualizar data</Text>
                     </View>
