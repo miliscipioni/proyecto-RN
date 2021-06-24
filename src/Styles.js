@@ -11,7 +11,7 @@ navbar: {
     alignItems: 'center',
     backgroundColor: '#1C265C',
     width: '100%',
-    height: '10%',
+    height: '8%',
     
     
 }, 
@@ -20,8 +20,36 @@ navbar: {
     fontSize: 30, 
     margin: 15, 
     fontWeight: 'bold',
-    marginTop: 50,
+    marginTop: 20,
     marginLeft: "40%",
+    right: 70
+},
+navbarDetailsAboutUs: {
+    color: '#05BC97',
+    fontSize: 30, 
+    margin: 15, 
+    fontWeight: 'bold',
+    bottom: 60,
+    marginLeft: "40%",
+    left: -10,
+},
+navbarDetailsHome:{
+    color: '#05BC97',
+    fontSize: 30, 
+    margin: 15, 
+    fontWeight: 'bold',
+    bottom: 70,
+    marginLeft: "40%",
+    left: -10,
+},
+navbarDetailsContactosImp: {
+    color: '#05BC97',
+    fontSize: 22, 
+    margin: 15, 
+    fontWeight: 'bold',
+    bottom: 50,
+    marginLeft: "40%",
+    right: 60,
 },
 
 buscar: {
@@ -37,8 +65,8 @@ searchIcon: {
     display: 'flex',
     width: 65,
     height: 65,
-    right: 10,
-    top: 165,
+    right: 15,
+    top: 75,
 }, 
 burgerIcon: {
     position: 'absolute',
@@ -89,7 +117,7 @@ cardImage: {
     alignSelf: 'center',
 },
 secondaryText: {
-    fontSize: 18,
+    fontSize: 14,
     padding: 5,
     justifyContent: 'center',
     alignSelf: 'center',
@@ -193,6 +221,7 @@ btnComentar: {
     alignSelf: 'center',
     borderRadius: 10, 
     shadowColor: 'rgba(0, 0, 0, 0.8)',
+    bottom: 10,
 }, 
 
 textoComentar:{
@@ -247,14 +276,12 @@ cardAboutUs: {
     position: 'relative',
 },
 burguerButton: {
-    width: 50,
-    height: 40,
-    backgroundColor: '#1C265C',
-
+    width: 82,
+    height: 82,
     alignItems: 'center',
     justifyContent: 'center',
-    right: 160,
-    top: 20, 
+    right: 5,
+    top: 2, 
    
 },
 burguerText: {
@@ -263,7 +290,10 @@ burguerText: {
 }, 
 burguerContainer: {
     position: 'absolute',
-    zIndex: 90,
+    left: 10,
+    width: 100,
+    height: 100,
+
 },
 
 burguerButtonPrueba: {
@@ -314,7 +344,8 @@ InputCantUsuarios: {
     borderRadius: 5,
     borderWidth: 2,
     borderStyle: 'solid',
-    backgroundColor: 'white'
+    backgroundColor: 'white', 
+    top: -55,
 }, 
 
 inputBusqueda:{
@@ -324,7 +355,10 @@ inputBusqueda:{
     borderRadius: 5,
     borderWidth: 2,
     borderStyle: 'solid',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    top: -60,
+    marginLeft: 10,
+    left: 40,
 },
 
 btnAgregarTarjetas: {
@@ -343,13 +377,15 @@ containerbtnAgregarTarjetas: {
     margin: 2, 
     justifyContent: 'center',
     alignItems: 'center',
+    top: -45,
 }, 
 textCantUsuarios: {
     color: '#05BC97',
     fontSize: 17,
     justifyContent: 'center',
     alignSelf: 'center',
-    margin: 20,
+    margin: 15,
+    top: -60,
 
 },
 

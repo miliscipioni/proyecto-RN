@@ -15,18 +15,17 @@ export class Header extends Component {
 
     render() {
         return (
-          <View> 
+          <View style={styles.navbar}> 
   
-            <View > 
+            <View style={styles.burguerContainer}> 
               <TouchableOpacity onPress= { () => this.props.openDrawer()}>
              
-                  <Text style={{margin: 30}}></Text>
-                  {/* <Image style={styles.burguerIcon} source= {require('@img/icono_sandwich.png')}></Image> */}
+               <Image style={styles.burguerButton} source= {require('@img/icono_sandwich.png')}></Image>
              
               </TouchableOpacity>
             </View> 
 
-            <Text style={styles.navbarDetails}>Home</Text> 
+            <Text style={styles.navbarDetails}></Text> 
            
              
           </View> 
