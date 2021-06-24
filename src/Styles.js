@@ -21,6 +21,7 @@ navbar: {
     margin: 15, 
     fontWeight: 'bold',
     marginTop: 50,
+    marginLeft: "40%",
 },
 
 buscar: {
@@ -39,12 +40,13 @@ searchIcon: {
     right: 10,
     top: 165,
 }, 
-burguerIcon: {
+burgerIcon: {
     position: 'absolute',
     display: 'flex',
     width: 70,
     height: 70, 
-    zIndex: 100,
+    marginLeft: 0,
+    marginTop: -65,
 },
 /* binIcon: {
     position: 'absolute',

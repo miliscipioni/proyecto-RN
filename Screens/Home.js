@@ -95,6 +95,10 @@ export class Home extends Component {
        <Header
         openDrawer = {this.props.navigation.openDrawer}
        /> 
+        <TouchableOpacity onPress={()=> this.props.navigation.openDrawer()}>
+          <Image style= {styles.burgerIcon} source= {require('@img/icono_sandwich.png')}/>
+        </TouchableOpacity>
+       
 
         <TextInput style={styles.inputBusqueda} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
         <Image style= {styles.searchIcon} source= {require('@img/icono_buscador.png')}></Image>
