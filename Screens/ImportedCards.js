@@ -110,6 +110,7 @@ export class ImportedCards extends Component {
             <Header
             openDrawer = {this.props.navigation.openDrawer}
             />
+            <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text> 
            
              {/* <TouchableOpacity onPress={() => this.showModal()}>
               <Text style = {{color: 'white'}} >ABRETE SESAMO</Text>

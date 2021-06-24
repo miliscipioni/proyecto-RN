@@ -36,7 +36,13 @@ export class AboutUs extends Component {
   render () {
       return(
         <View style={styles.container}> 
-            <Text style={styles.navbarDetails}> About Us</Text>
+
+        <Header
+        openDrawer = {this.props.navigation.openDrawer}
+        />
+
+            <Text style={styles.navbarDetailsAboutUs}> About Us</Text>
+            
             <View style={styles.flatlistContainer}>
 
             <TouchableOpacity style={styles.containerbtnAgregarTarjetas} onPress= {this.fadeIn}>
