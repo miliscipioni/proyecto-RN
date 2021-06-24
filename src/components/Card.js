@@ -24,33 +24,13 @@ class Card extends Component {
         }
     }
 
-    async storageComentario (value){
-        try{
-            await AsyncStorage.setItem("@comentario", value);
-        }catch(error){
-            console.log(error)
-        }
-    }
-
-    async getComentario(){
-        try{
-            const value  = await AsyncStorage.getItem("@comentario");
-            if(value !== null){
-                this.setState({comentario: value})
-            }else{
-                console.log("Error")
-            }
-        }catch(error){
-            console.log(error)
-        }
-    }
-
     agregarComentario() {
         let nuevoComentario = this.state.comentario.push()
         this.setState({
             comentario: nuevoComentario
         })
     };
+
 
     render() {
         return (
@@ -125,10 +105,10 @@ class Card extends Component {
                                 <Text style= {styles.detailsTitleModal}> {this.state.comentario} </Text>                            
                             </Text>
 
-                            <TextInput style={styles.InputCantUsuarios} placeholder='Ingresar comentario' multiline numberOfLines={2}  onChange ={()=> this.getComentario}></TextInput>
+                            <TextInput style={styles.InputCantUsuarios} placeholder='Ingresar comentario' multiline numberOfLines={2}  onChange ={(text)=> this.agregarComentario(text)}></TextInput>
                           
                             {/* <TouchableOpacity onPress= {this.props.onComentar.bind(this, this.props.elemento.id)}> */}
-                            <TouchableOpacity onPress ={()=> this.agregarComentario}>
+                            <TouchableOpacity onPress ={(text)=> this.agregarComentario(text)}>
                                 <View style={styles.btnComentar}>
                                     <Pressable>
                                         <Text style={styles.modalBtnText}>COMENTAR</Text>
