@@ -9,6 +9,8 @@ import {
   FlatList,
   TouchableOpacity,
   Alert,
+  TextInput,
+  Image
 } from 'react-native';
 import {Import} from './Import';
 import {styles} from '../src/Styles';
@@ -54,6 +56,19 @@ export class ImportedCards extends Component {
           console.log(error)
       }
   } 
+
+  buscador(text) {
+    let busqueda = this.state.importedUsers.filter ((usuario) => {
+      return usuario.name.first.toLowerCase().includes(text.toLowerCase()) ||
+      usuario.name.last.toLowerCase().includes(text.toLowerCase()) || 
+      usuario.location.country.toLowerCase().includes(text.toLowerCase()) ||
+      usuario.location.city.toLowerCase().includes(text.toLowerCase())
+    })
+    this.setState ({
+      importedUsers: busqueda
+    })
+    console.log(busqueda)
+}
 
   borrarTarjeta(idTarjeta){
 
@@ -101,13 +116,32 @@ export class ImportedCards extends Component {
             <Header
             openDrawer = {this.props.navigation.openDrawer}
             />
+            
+
+          <TouchableOpacity onPress={()=> this.props.navigation.openDrawer()}>
+            <Image style= {styles.burgerIcon} source= {require('@img/icono_sandwich.png')}/>
+          </TouchableOpacity>
             <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text> 
            
+            <TextInput style={styles.inputBusquedaImportados} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
+            <Image style= {styles.searchIconImportados} source= {require('@img/icono_buscador.png')}></Image>
+
+
+
+            <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
+                <Text style = {styles.textoAbajoImportados}>Actualizar data</Text>
+            </TouchableOpacity>
+
+             {/* {values} */} 
+             <TouchableOpacity onPress={this.getData.bind(this)}>
+                <Text style={styles.textoAbajoImportados2} >Importar data</Text>
+              </TouchableOpacity>
+
              {/* <TouchableOpacity onPress={() => this.showModal()}>
               <Text style = {{color: 'white'}} >ABRETE SESAMO</Text>
               </TouchableOpacity>
                */}
-            <View style={styles.flatlistContainer}> 
+            <View style={styles.flatlistContainerImportados}> 
             <FlatList
            
               data={this.state.importedUsers}
@@ -116,19 +150,6 @@ export class ImportedCards extends Component {
               numColumns={2}
             />
             </View>
-
-            <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
-                    <View>
-                        <Text style = {{color: 'white'}}>Actualizar data</Text>
-                    </View>
-            </TouchableOpacity>
-
-             {/* {values} */} 
-             <TouchableOpacity onPress={this.getData.bind(this)}>
-                  <View>
-                      <Text style={{color: 'white'}} >Importar datos</Text>
-                  </View>
-              </TouchableOpacity>
               
               
               

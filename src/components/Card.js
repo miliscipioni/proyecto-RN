@@ -34,7 +34,7 @@ class Card extends Component {
                 
                 <TouchableOpacity onPress= {() => this.setState({showModal: true})} style={styles.btnDescripcion}>
                     <View style={styles.moreContainer}>
-                        <Text  style={styles.btnDescripcion}>Ver más</Text>
+                        <Text style={styles.btnDescripcion}>Ver más</Text>
                         <View style={styles.btnMasBorde}>
                             <Text  style={styles.btnMas}>+</Text>
                         </View>

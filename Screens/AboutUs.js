@@ -41,7 +41,7 @@ export class AboutUs extends Component {
         openDrawer = {this.props.navigation.openDrawer}
         />
 
-            <Text style={styles.navbarDetailsAboutUs}> About Us</Text>
+            <Text style={styles.aboutUs}>About Us</Text>
             
             <View style={styles.flatlistContainer}>
 

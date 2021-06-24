@@ -45,12 +45,11 @@ navbarDetailsHome:{
 },
 navbarDetailsContactosImp: {
     color: '#05BC97',
-    fontSize: 22, 
+    fontSize: 25, 
     margin: 15, 
+    top: 40,
     fontWeight: 'bold',
-    bottom: 50,
-    marginLeft: "40%",
-    right: 60,
+    alignContent: "center"
 },
 
 buscar: {
@@ -67,8 +66,17 @@ searchIcon: {
     width: 65,
     height: 65,
     right: 0,
-    top: 145,
+    top: 140,
 }, 
+searchIconImportados: {
+    position: 'absolute',
+    display: 'flex',
+    width: 65,
+    height: 65,
+    right: 0,
+    top: 90,
+},
+
 burgerIcon: {
     position: 'absolute',
     display: 'flex',
@@ -92,6 +100,13 @@ flatlistContainer: {
     justifyContent: 'center',
     alignItems: 'center',
 }, 
+
+flatlistContainerImportados:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 50
+},
 principalText: {
     fontSize: 22,
     color: '#000000',
@@ -165,7 +180,7 @@ btnMas: {
 },
 moreContainer: {
   marginLeft: 2,
-  marginTop: 5,
+  marginTop: 8,
 },
 modalContainer: {
     flex: 1,
@@ -177,10 +192,12 @@ modal: {
     height: "90%",
     backgroundColor: "#FEF5E7",
     alignItems:'center',
+    alignContent: "center",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     elevation: 30,
     shadowColor: '#000000',
+    
 
 },
 modalCloseBtn: {
@@ -345,7 +362,7 @@ InputCantUsuarios: {
     borderWidth: 2,
     borderStyle: 'solid',
     backgroundColor: 'white', 
-    top: 0,
+    top: 0
 }, 
 
 inputBusqueda:{
@@ -357,6 +374,19 @@ inputBusqueda:{
     borderStyle: 'solid',
     backgroundColor: 'white',
     top: 0,
+    marginLeft: -30,
+    left: 40,
+},
+
+inputBusquedaImportados:{
+    width: '100%', 
+    height: 40,
+    width: 300,
+    borderRadius: 5,
+    borderWidth: 2,
+    borderStyle: 'solid',
+    backgroundColor: 'white',
+    top: 45,
     marginLeft: -30,
     left: 40,
 },
@@ -380,12 +410,11 @@ containerbtnAgregarTarjetas: {
 }, 
 textCantUsuarios: {
     color: '#05BC97',
+    width: '100%', 
     fontSize: 17,
-    justifyContent: 'center',
-    alignSelf: 'center',
     margin: 15,
     top: 10,
-
+    fontWeight: 'bold'
 },
 animarTarjetas: {
     backgroundColor: '#FF2E63',
@@ -406,11 +435,89 @@ animationBoton:{
     margin: 2, 
     justifyContent: 'center',
     alignItems: 'center',
-}
+},
 
+textoAbajo:{
+    color: '#05BC97',
+    width: '100%', 
+    fontSize: 23,
+    margin: 15,
+    marginBottom: 50,
+    marginLeft: 107,
+    top: 10,
+    fontWeight: 'bold',
+},
 
+textoAbajoImportados:{
+    color: '#2C7D53',
+    width: '100%', 
+    fontSize: 22,
+    marginTop: 70,
+    fontWeight: 'bold',
+    marginLeft: 15
+},
 
-   
+textoAbajoImportados2:{
+    color: '#2C7D53',
+    width: '100%', 
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginTop: -26,
+    marginLeft: 215,
+},
+
+textoAbajoPapelera:{
+    color: '#2C7D53',
+    width: '100%', 
+    fontSize: 20,
+    marginTop: 45,
+    fontWeight: 'bold',
+    marginLeft: 10
+},
+
+textoAbajoPapelera2:{
+    color: 'red',
+    width: '100%', 
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: -23,
+    marginLeft: 215,
+},
+papelera:{
+    color: '#05BC97',
+    fontSize: 30, 
+    fontWeight: 'bold',
+    marginTop: 70,
+    marginLeft: 48,
+    justifyContent: 'center',
+    alignContent: 'center',
+},
+
+aboutUs:{
+    color: '#05BC97',
+    fontSize: 30, 
+    fontWeight: 'bold',
+    marginTop: 70,
+    marginBottom: 10,
+    marginLeft: 130,
+    justifyContent: 'center',
+    alignContent: 'center',
+},
+btnBorrar: {
+    backgroundColor: '#6200E8',
+    position: 'absolute',
+    width: 75,
+    height: 20,
+    left: 50,
+    bottom: 1,
+    marginTop: 50,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius: 20, 
+    shadowColor: 'rgba(0, 0, 0, 0.8)'
+
+},
+
 })
 
 
