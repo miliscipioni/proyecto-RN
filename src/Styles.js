@@ -4,7 +4,8 @@ const styles = StyleSheet.create ({
 container: {
     backgroundColor: '#010A43',
     height: '100%',
-    width: '100%'
+    width: '100%',
+    flex: 1
 }, 
 navbar: {
     justifyContent: 'space-between',
@@ -65,8 +66,8 @@ searchIcon: {
     display: 'flex',
     width: 65,
     height: 65,
-    right: 15,
-    top: 75,
+    right: 0,
+    top: 145,
 }, 
 burgerIcon: {
     position: 'absolute',
@@ -75,6 +76,7 @@ burgerIcon: {
     height: 70, 
     marginLeft: 0,
     marginTop: -65,
+    flex:1
 },
 /* binIcon: {
     position: 'absolute',
@@ -213,15 +215,13 @@ modalBtnText: {
 btnComentar: {
     backgroundColor: '#6200E8',
     position: 'absolute', 
-    right: 20,
-    marginTop: 5,
+    marginTop: 20,
     width: 90,
     height: 30,
     justifyContent: 'center',
     alignSelf: 'center',
     borderRadius: 10, 
     shadowColor: 'rgba(0, 0, 0, 0.8)',
-    bottom: 10,
 }, 
 
 textoComentar:{
@@ -234,7 +234,7 @@ textoComentar:{
     justifyContent: 'center',
     alignSelf: 'center',
     borderRadius: 10, 
-    shadowColor: 'rgba(0, 0, 0, 0.8)',
+    shadowColor: 'rgba(0, 0, 0, 0.8)'
 },
 
 btnBorrar: {
@@ -345,7 +345,7 @@ InputCantUsuarios: {
     borderWidth: 2,
     borderStyle: 'solid',
     backgroundColor: 'white', 
-    top: -55,
+    top: 0,
 }, 
 
 inputBusqueda:{
@@ -356,8 +356,8 @@ inputBusqueda:{
     borderWidth: 2,
     borderStyle: 'solid',
     backgroundColor: 'white',
-    top: -60,
-    marginLeft: 10,
+    top: 0,
+    marginLeft: -30,
     left: 40,
 },
 
@@ -367,7 +367,6 @@ btnAgregarTarjetas: {
     justifyContent: 'center', 
     textAlign: 'center',
     fontWeight: 'bold', 
-
 }, 
 containerbtnAgregarTarjetas: {
     backgroundColor: '#FF2E63',
@@ -377,7 +376,7 @@ containerbtnAgregarTarjetas: {
     margin: 2, 
     justifyContent: 'center',
     alignItems: 'center',
-    top: -45,
+    top: 5,
 }, 
 textCantUsuarios: {
     color: '#05BC97',
@@ -385,11 +384,29 @@ textCantUsuarios: {
     justifyContent: 'center',
     alignSelf: 'center',
     margin: 15,
-    top: -60,
+    top: 10,
 
 },
+animarTarjetas: {
+    backgroundColor: '#FF2E63',
+    width: '100%', 
+    height: 30,
+    borderRadius: 5,
+    margin: 2, 
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+}, 
 
-
+animationBoton:{
+    backgroundColor: '#2C7D53',
+    width: '100%', 
+    height: 30,
+    borderRadius: 5,
+    margin: 2, 
+    justifyContent: 'center',
+    alignItems: 'center',
+}
 
 
 

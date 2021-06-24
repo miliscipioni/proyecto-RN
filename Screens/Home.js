@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   Button,
   TextInput,
-  ScrollView,
+  ScrollView
 } from 'react-native';
 import {styles} from '../src/Styles';
 
@@ -21,6 +21,7 @@ export class Home extends Component {
     super(props);
     this.state = {
       users: [], 
+      busqueda: [],
       textHandler: '',
       comentario: " ",
     }
@@ -43,14 +44,6 @@ export class Home extends Component {
       })
   }
 
-
-  agregarComentario() {
-    let nuevoComentario = this.state.comentario
-    this.setState({
-      comentario: nuevoComentario
-    })
-  };
-
   async storeData(){
     try{
         const jsonUsers = JSON.stringify(this.state.users);
@@ -66,7 +59,7 @@ export class Home extends Component {
     return (
       <Card
       elemento = {item}
-      onComentar = {this.agregarComentario.bind(this)}
+      onComentar = {this.comentarTarjeta.bind(this)}
       />
     )
   }
@@ -86,6 +79,20 @@ export class Home extends Component {
     console.log(busqueda)
 }
 
+
+  // let nuevoArray = this.state.importedUsers.filter((tarjeta) => {
+  //     return tarjeta.id !== idTarjeta,
+  // });
+
+comentarTarjeta() {
+  let nuevoComentario = this.state.comentario
+  this.setState({
+    comentario: nuevoComentario
+  })
+  console.log(nuevoComentario)
+};
+
+
   render () {
       return(
         
@@ -98,7 +105,6 @@ export class Home extends Component {
        {/* <TouchableOpacity onPress={()=> this.props.navigation.openDrawer()}>
           <Image style= {styles.burgerIcon} source= {require('@img/icono_sandwich.png')}/>
       </TouchableOpacity> */}
-       <Text style={styles.navbarDetailsHome}>Home</Text>
 
         <TextInput style={styles.inputBusqueda} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
         <Image style= {styles.searchIcon} source= {require('@img/icono_buscador.png')}></Image>
@@ -131,13 +137,14 @@ export class Home extends Component {
               numColumns={2}
             
             />
-          
+          </View>
+
           <TouchableOpacity onPress={this.storeData.bind(this)}>
             <View>
                 <Text style={{color: 'white', fontSize: 20}}>Guardar datos</Text>
             </View>
           </TouchableOpacity>
-        </View>
+        
 
 
       </ScrollView>

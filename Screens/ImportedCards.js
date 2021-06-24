@@ -36,7 +36,6 @@ export class ImportedCards extends Component {
       <Card_2
       elemento = {item}
       onDelete = {this.borrarTarjeta.bind(this)}
-      onComentar ={this.agregarComentario.bind(this)}
       />
     )
   }

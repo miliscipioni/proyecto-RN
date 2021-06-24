@@ -19,11 +19,8 @@ class Card_2 extends Component {
         super();
         this.state ={
             showModal: false,
-            comentario: " ",
         }
       }
-
-
 
     render() {
         return (
@@ -91,20 +88,6 @@ class Card_2 extends Component {
                             <TouchableOpacity style={styles.btnModal} onPress= {() => this.setState({showModal: false})}>
                                 <View style={styles.modalCloseBtnContainer}>
                                     <Text style={styles.modalCloseBtn}>X</Text>
-                                </View>
-                            </TouchableOpacity>
-
-                            <Text style= {styles.secondaryTextModal}> 
-                                <Text style= {styles.detailsTitleModal}> {this.state.comentario} </Text>                            
-                            </Text>
-
-                            <TextInput style={styles.InputCantUsuarios} placeholder='Ingresar comentario' multiline numberOfLines={2}></TextInput>
-                          
-                            <TouchableOpacity onPress= {this.props.onComentar.bind(this, this.props.elemento.id)}>
-                                <View style={styles.btnComentar}>
-                                    <Pressable>
-                                        <Text style={styles.modalBtnText}>COMENTAR</Text>
-                                    </Pressable>
                                 </View>
                             </TouchableOpacity>
 
