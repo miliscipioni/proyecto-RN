@@ -8,9 +8,6 @@ import {
   View, 
   FlatList,
   TouchableOpacity,
-  Image,
-  Button,
-  Modal,
   Alert,
 } from 'react-native';
 import {Import} from './Import';
@@ -30,6 +27,7 @@ export class ImportedCards extends Component {
   }
 
   componentDidMount(){
+
   }
 
   renderItem = ({item}) => {
@@ -63,7 +61,8 @@ export class ImportedCards extends Component {
 
     //si tarjeta.id y idTarjeta son distintos (true) deja ese item, caso contrario, osea que tarjeta.id y idTarjeta sean iguales (false) sacame la tarjeta.
     let nuevoArray = this.state.importedUsers.filter((tarjeta) => {
-        return tarjeta.id !== idTarjeta 
+        return tarjeta.id !== idTarjeta,
+        Alert.alert("Recuerda actualizar los datos!")
     });
 
     let tarjetaBorrada = this.state.importedUsers.filter((tarjeta) => {
@@ -76,9 +75,7 @@ export class ImportedCards extends Component {
       importedUsers: nuevoArray,
       tarjetasBorradas: tarjetasBorradas,
     })
-    
   };
-
 
   agregarComentario() {
     let nuevoComentario = this.state.comentario
@@ -98,7 +95,7 @@ export class ImportedCards extends Component {
     catch(error){
         console.log(error)
     }
-} 
+  } 
 
   render () { 
       {/*const values = this.state.importedUsers.map( item =>
@@ -130,14 +127,14 @@ export class ImportedCards extends Component {
 
             <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
                     <View>
-                        <Text style = {{color: 'white'}}>Guardar datos borrados</Text>
+                        <Text style = {{color: 'white'}}>Actualizar data</Text>
                     </View>
             </TouchableOpacity>
 
              {/* {values} */} 
              <TouchableOpacity onPress={this.getData.bind(this)}>
                   <View>
-                      <Text style={{color: 'white'}} >Recuperar datos</Text>
+                      <Text style={{color: 'white'}} >Importar datos</Text>
                   </View>
               </TouchableOpacity>
               

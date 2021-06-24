@@ -6,6 +6,7 @@ import {
   View, 
   FlatList,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import {styles} from '../src/Styles';
 
@@ -15,7 +16,6 @@ export class Bin extends Component {
     super();
     this.state ={
         tarjetasBorradas: [], 
-        remove_msg: "",
     }
   } 
 
@@ -53,7 +53,7 @@ export class Bin extends Component {
   async removeValue(key){
     try {
       await AsyncStorage.removeItem(key);
-      this.setState({remove_msg: "se borro exitosamente"})
+      this.setState(Alert.alert("Se borraron los contactos exitosamente."))
     } catch (error) {
       console.log(error);
     }
@@ -65,23 +65,19 @@ export class Bin extends Component {
         
         <Text style={styles.navbarDetails}>Papelera de reciclaje</Text>
 
+        <TouchableOpacity onPress={this.getData.bind(this)}>
+            <Text style={{color: 'white'}}>Ver datos borrados</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={ () => this.removeValue("Papelera") && this.setState({tarjetasBorradas: [] })}>
+            <Text style={{color: 'white'}}>VACIAR PAPELERA</Text>
+        </TouchableOpacity>
+
         <FlatList
           data={this.state.tarjetasBorradas}
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
         />
-
-        <TouchableOpacity onPress={() => this.removeValue("Papelera")}>
-          <Text style={{color: 'white'}}>Limpiar almacenamiento</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.getData.bind(this)}>
-            <Text style={{color: 'white'}}>Ver datos borrados</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={ () => this.setState({tarjetasBorradas: [] })}>
-            <Text style={{color: 'red'}}> VACIAR PAPELERA </Text>
-        </TouchableOpacity>
 
       </View>
     )
