@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   Button,
   TextInput,
-  ScrollView,
+  ScrollView
 } from 'react-native';
 import {styles} from '../src/Styles';
 
@@ -131,13 +131,14 @@ export class Home extends Component {
               numColumns={2}
             
             />
-          
+          </View>
+
           <TouchableOpacity onPress={this.storeData.bind(this)}>
             <View>
                 <Text style={{color: 'white', fontSize: 20}}>Guardar datos</Text>
             </View>
           </TouchableOpacity>
-        </View>
+        
 
 
       </ScrollView>

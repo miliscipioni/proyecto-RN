@@ -4,7 +4,8 @@ const styles = StyleSheet.create ({
 container: {
     backgroundColor: '#010A43',
     height: '100%',
-    width: '100%'
+    width: '100%',
+    flex: 1
 }, 
 navbar: {
     justifyContent: 'space-between',
@@ -47,6 +48,7 @@ burgerIcon: {
     height: 70, 
     marginLeft: 0,
     marginTop: -65,
+    flex:1
 },
 /* binIcon: {
     position: 'absolute',
@@ -333,7 +335,6 @@ btnAgregarTarjetas: {
     justifyContent: 'center', 
     textAlign: 'center',
     fontWeight: 'bold', 
-
 }, 
 containerbtnAgregarTarjetas: {
     backgroundColor: '#FF2E63',
@@ -352,8 +353,26 @@ textCantUsuarios: {
     margin: 20,
 
 },
+animarTarjetas: {
+    backgroundColor: '#FF2E63',
+    width: '100%', 
+    height: 30,
+    borderRadius: 5,
+    margin: 2, 
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+}, 
 
-
+animationBoton:{
+    backgroundColor: '#2C7D53',
+    width: '100%', 
+    height: 30,
+    borderRadius: 5,
+    margin: 2, 
+    justifyContent: 'center',
+    alignItems: 'center',
+}
 
 
 
