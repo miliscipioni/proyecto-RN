@@ -66,8 +66,8 @@ searchIcon: {
     display: 'flex',
     width: 65,
     height: 65,
-    right: 15,
-    top: 75,
+    right: 0,
+    top: 145,
 }, 
 burgerIcon: {
     position: 'absolute',
@@ -347,7 +347,7 @@ InputCantUsuarios: {
     borderWidth: 2,
     borderStyle: 'solid',
     backgroundColor: 'white', 
-    top: -55,
+    top: 0,
 }, 
 
 inputBusqueda:{
@@ -358,8 +358,8 @@ inputBusqueda:{
     borderWidth: 2,
     borderStyle: 'solid',
     backgroundColor: 'white',
-    top: -60,
-    marginLeft: 10,
+    top: 0,
+    marginLeft: -30,
     left: 40,
 },
 
@@ -378,7 +378,7 @@ containerbtnAgregarTarjetas: {
     margin: 2, 
     justifyContent: 'center',
     alignItems: 'center',
-    top: -45,
+    top: 5,
 }, 
 textCantUsuarios: {
     color: '#05BC97',
@@ -386,7 +386,7 @@ textCantUsuarios: {
     justifyContent: 'center',
     alignSelf: 'center',
     margin: 15,
-    top: -60,
+    top: 10,
 
 },
 animarTarjetas: {
