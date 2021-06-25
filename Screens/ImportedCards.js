@@ -148,8 +148,8 @@ export class ImportedCards extends Component {
             <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text> 
           
 
-            <TouchableOpacity onPress={this.updateStorage.bind(this)}>
-                <Text style = {styles.textoAbajoImportados}>Actualizar data</Text>
+            <TouchableOpacity >
+                <Text onPress={this.updateStorage.bind(this)} style = {styles.textoAbajoImportados}>Actualizar data</Text>
             </TouchableOpacity>
 
              {/* {values} */} 
