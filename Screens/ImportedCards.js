@@ -31,12 +31,32 @@ export class ImportedCards extends Component {
   componentDidMount(){
 
   }
+  async funComentario(value){
+    try{
+        let comentario = this.state.comentario;
+        let users = this.state.importedUsers;
+        users.map((contacto)=>{
+          contacto.funComentario = comentario
+        })
+        const jsonObj = JSON.stringify(users)
+        await AsyncStorage.setItem("users", jsonObj)
+
+        this.setState({
+          importedUsers: users,
+          comentario: value
+        })
+
+    }catch(error){
+        console.log(error)
+    }
+}
 
   renderItem = ({item}) => {
     return (
       <Card_2
       elemento = {item}
       onDelete = {this.borrarTarjeta.bind(this)}
+      onComentar = {this.funComentario.bind(this)}
       />
     )
   }
@@ -125,7 +145,7 @@ export class ImportedCards extends Component {
         // <Text key = {item.login.uuid}>
         //  {item.name.first}
       // </Text>) */}
-      //   console.log(this.state.importedUsers.length);
+      //   console.log(this.state.importedUsers.length);      
       return (
           <View style={styles.container}>
            

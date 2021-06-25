@@ -19,6 +19,7 @@ class Card_2 extends Component {
         super();
         this.state ={
             showModal: false,
+            comentario: "  ",
         }
       }
 

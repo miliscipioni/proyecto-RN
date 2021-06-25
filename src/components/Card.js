@@ -92,7 +92,7 @@ class Card extends Component {
                             </Text>
 
                             <TextInput style={styles.comentario} placeholder='Ingresar comentario' multiline numberOfLines={2} onChangeText= {value => this.setState({comentario: value})}></TextInput>
-                            <Button title= "Comentar" onPress= {()=>this.funComentario(this.state.item)}> </Button>
+                            <Button title= "Comentar" onPress= {this.props.onComentar.bind(this, this.props.elemento.id)}> </Button>
                            
 
                             <TouchableOpacity onPress= {() => this.setState({showModal: false})}>
