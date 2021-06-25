@@ -74,7 +74,7 @@ searchIconImportados: {
     width: 65,
     height: 65,
     right: 0,
-    top: 90,
+    top: 20
 },
 
 burgerIcon: {
@@ -386,7 +386,7 @@ inputBusquedaImportados:{
     borderWidth: 2,
     borderStyle: 'solid',
     backgroundColor: 'white',
-    top: 45,
+    top: 30,
     marginLeft: -30,
     left: 40,
 },

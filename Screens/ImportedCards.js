@@ -145,24 +145,40 @@ export class ImportedCards extends Component {
             />
             
 
-          <TouchableOpacity onPress={()=> this.props.navigation.openDrawer()}>
-            <Image style= {styles.burgerIcon} source= {require('@img/icono_sandwich.png')}/>
-          </TouchableOpacity>
             <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text> 
-           
-            <TextInput style={styles.inputBusquedaImportados} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
-            <Image style= {styles.searchIconImportados} source= {require('@img/icono_buscador.png')}></Image>
+          
 
-
-
-            <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
+            <TouchableOpacity onPress={this.updateStorage.bind(this)}>
                 <Text style = {styles.textoAbajoImportados}>Actualizar data</Text>
             </TouchableOpacity>
 
              {/* {values} */} 
              <TouchableOpacity onPress={this.getData.bind(this)}>
-                <Text style={styles.textoAbajoImportados2} >Importar data</Text>
+                  <View>
+                      <Text style={styles.textoAbajoImportados2}>Importar datos</Text>
+                  </View>
               </TouchableOpacity>
+
+              <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
+                    <View>
+                        <Text style={styles.textoAbajoPapelera}>Mandar datos eliminados a papelera</Text>
+                    </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+              <TextInput style={styles.inputBusquedaImportados} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
+              <Image style= {styles.searchIconImportados} source= {require('@img/icono_buscador.png')}></Image>
+           </TouchableOpacity>
+
+
+            {/* <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
+                <Text style = {styles.textoAbajoImportados}>Actualizar data</Text>
+            </TouchableOpacity>
+
+             {/* {values} */} 
+             {/* <TouchableOpacity onPress={this.getData.bind(this)}>
+                <Text style={styles.textoAbajoImportados2} >Importar data</Text>
+              </TouchableOpacity>  */}
 
              {/* <TouchableOpacity onPress={() => this.showModal()}>
               <Text style = {{color: 'white'}} >ABRETE SESAMO</Text>
@@ -177,26 +193,6 @@ export class ImportedCards extends Component {
               numColumns={2}
             />
             </View>
-
-            <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
-                    <View>
-                        <Text style = {{color: 'white'}}>Mandar datos eliminados a papelera</Text>
-                    </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={this.updateStorage.bind(this)}>
-                    <View>
-                        <Text style = {{color: 'white'}}>Actualizar data</Text>
-                    </View>
-            </TouchableOpacity>
-
-             {/* {values} */} 
-             <TouchableOpacity onPress={this.getData.bind(this)}>
-                  <View>
-                      <Text style={{color: 'white'}} >Importar datos</Text>
-                  </View>
-              </TouchableOpacity>
-              
               
               
              {/* <TouchableOpacity onPress={() => }>
