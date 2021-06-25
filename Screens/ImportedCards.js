@@ -137,7 +137,7 @@ export class ImportedCards extends Component {
 
             <TouchableOpacity onPress={this.getData.bind(this)}>
               <View>
-                <Text >Importar datos</Text>
+                <Text style={styles.textoAbajoImportados2}>Importar datos</Text>
               </View>
             </TouchableOpacity>
 
