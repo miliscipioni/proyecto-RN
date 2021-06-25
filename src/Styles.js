@@ -45,9 +45,9 @@ navbarDetailsHome:{
 },
 navbarDetailsContactosImp: {
     color: '#05BC97',
-    fontSize: 25, 
+    fontSize: 27, 
     margin: 15, 
-    top: 40,
+    top: 60,
     fontWeight: 'bold',
     alignContent: "center"
 },
@@ -74,7 +74,7 @@ searchIconImportados: {
     width: 65,
     height: 65,
     right: 0,
-    top: 20
+    bottom: 30
 },
 
 burgerIcon: {
@@ -392,7 +392,7 @@ inputBusquedaImportados:{
     borderWidth: 2,
     borderStyle: 'solid',
     backgroundColor: 'white',
-    top: 30,
+    bottom: 45,
     marginLeft: -30,
     left: 40,
 },
@@ -468,7 +468,7 @@ textoAbajoImportados2:{
     width: '100%', 
     fontSize: 22,
     fontWeight: 'bold',
-    marginTop: -26,
+    marginTop: 80,
     marginLeft: 215,
 },
 

@@ -135,22 +135,16 @@ export class ImportedCards extends Component {
             
             <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text>
 
-            <TouchableOpacity onPress={this.getData.bind(this)}>
-              <View>
-                <Text style={styles.textoAbajoImportados2}>Importar datos</Text>
-              </View>
-            </TouchableOpacity>
-
-            
-            <TouchableOpacity>
-              <TextInput style={styles.inputBusquedaImportados} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
-              <Image style= {styles.searchIconImportados} source= {require('@img/icono_buscador.png')}></Image>
-            </TouchableOpacity>
 
              {/* <TouchableOpacity onPress={() => this.showModal()}>
               <Text style = {{color: 'white'}} >ABRETE SESAMO</Text>
               </TouchableOpacity>
                */}
+
+              <View>
+                <Text onPress={this.getData.bind(this)} style={styles.textoAbajoImportados2}>Importar datos</Text>
+              </View>
+               
             <View style={styles.flatlistContainerImportados}> 
             <FlatList
            
@@ -160,6 +154,11 @@ export class ImportedCards extends Component {
               numColumns={2}
             />
             </View>
+
+            <TouchableOpacity>
+              <TextInput style={styles.inputBusquedaImportados} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
+              <Image style= {styles.searchIconImportados} source= {require('@img/icono_buscador.png')}></Image>
+            </TouchableOpacity>
               
               
              {/* <TouchableOpacity onPress={() => }>
