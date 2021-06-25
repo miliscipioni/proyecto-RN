@@ -66,7 +66,7 @@ searchIcon: {
     width: 65,
     height: 65,
     right: 0,
-    top: 140,
+    top: 170,
 }, 
 searchIconImportados: {
     position: 'absolute',
@@ -83,7 +83,7 @@ burgerIcon: {
     width: 70,
     height: 70, 
     marginLeft: 0,
-    marginTop: -65,
+    marginTop: -55,
     flex:1
 },
 /* binIcon: {
@@ -368,7 +368,7 @@ InputCantUsuarios: {
     borderWidth: 2,
     borderStyle: 'solid',
     backgroundColor: 'white', 
-    top: 0
+    top: -19
 }, 
 
 inputBusqueda:{
@@ -379,7 +379,7 @@ inputBusqueda:{
     borderWidth: 2,
     borderStyle: 'solid',
     backgroundColor: 'white',
-    top: 0,
+    top: -23,
     marginLeft: -30,
     left: 40,
 },
@@ -403,6 +403,7 @@ btnAgregarTarjetas: {
     justifyContent: 'center', 
     textAlign: 'center',
     fontWeight: 'bold', 
+    top: 0
 }, 
 containerbtnAgregarTarjetas: {
     backgroundColor: '#FF2E63',
@@ -412,15 +413,15 @@ containerbtnAgregarTarjetas: {
     margin: 2, 
     justifyContent: 'center',
     alignItems: 'center',
-    top: 5,
+    top: -10,
 }, 
 textCantUsuarios: {
     color: '#05BC97',
     width: '100%', 
-    fontSize: 17,
+    fontSize: 20,
     margin: 15,
-    top: 10,
-    fontWeight: 'bold'
+    top: -20,
+    fontWeight: 'bold',
 },
 animarTarjetas: {
     backgroundColor: '#FF2E63',
@@ -449,7 +450,6 @@ textoAbajo:{
     fontSize: 23,
     margin: 15,
     marginBottom: 50,
-    marginLeft: 107,
     top: 10,
     fontWeight: 'bold',
 },
@@ -482,13 +482,25 @@ textoAbajoPapelera:{
 },
 
 textoAbajoPapelera2:{
-    color: 'red',
+    color: "red",
     width: '100%', 
     fontSize: 20,
     fontWeight: 'bold',
     marginTop: -23,
     marginLeft: 215,
 },
+
+textoAbajoPapelera3:{
+    color: '#2C7D53',
+    width: '100%', 
+    fontSize: 19,
+    fontWeight: 'bold',
+    marginTop: 10,
+    alignContent:"center",
+    textAlign: "center",
+    marginLeft: 10,
+},
+
 papelera:{
     color: '#05BC97',
     fontSize: 30, 
@@ -528,7 +540,16 @@ botonSalir: {
     fontSize: 45,
     marginTop: 60
 
-}
+},
+comentario: {
+    width: '100%', 
+    height: 40,
+    borderRadius: 5,
+    borderWidth: 2,
+    borderStyle: 'solid',
+    backgroundColor: 'white', 
+    top: 7
+},
 
 })
 

@@ -122,7 +122,7 @@ export class Bin extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
-            <Text style={{color: 'white'}}>Eliminar items marcados de forma definitiva</Text>
+            <Text style={styles.textoAbajoPapelera3}>Eliminar items marcados de forma definitiva</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.getDataOriginal.bind(this)}>

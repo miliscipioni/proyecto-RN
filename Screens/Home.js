@@ -139,7 +139,7 @@ export class Home extends Component {
        <TouchableOpacity onPress={()=> this.props.navigation.openDrawer()}>
           <Image style= {styles.burgerIcon} source= {require('@img/icono_sandwich.png')}/>
       </TouchableOpacity>
-       <Text style={styles.navbarDetailsHome}>Home</Text>
+       <Text style={styles.navbarDetailsHome}></Text>
 
         <TextInput style={styles.inputBusqueda} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
         <Image style= {styles.searchIcon} source= {require('@img/icono_buscador.png')}></Image>
@@ -175,7 +175,7 @@ export class Home extends Component {
           
           <TouchableOpacity onPress={this.storeData.bind(this)}>
             <View>
-                <Text style={{color: 'white', fontSize: 20}}>Guardar datos</Text>
+                <Text style={styles.textoAbajo}>Guardar datos</Text>
             </View>
           </TouchableOpacity>
         </View>
