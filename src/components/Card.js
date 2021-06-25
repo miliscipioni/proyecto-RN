@@ -86,12 +86,7 @@ class Card extends Component {
                                 <Text style= {styles.detailsTitleModal}> Teléfono: </Text> 
                                 {this.props.elemento.phone}
                             </Text>
-                        
-                            <TouchableOpacity style={styles.btnModal} onPress= {() => this.setState({showModal: false})}>
-                                <View style={styles.modalCloseBtnContainer}>
-                                    <Text style={styles.modalCloseBtn}>X</Text>
-                                </View>
-                            </TouchableOpacity>
+                    
 
                             <Text style= {styles.secondaryTextModal}> 
                                 <Text style= {styles.detailsTitleModal}> Comentario: </Text> 
@@ -103,6 +98,12 @@ class Card extends Component {
                             <TouchableOpacity onPress= {this.props.onComentar.bind(this, this.props.elemento.id)}>
                                 <View style={styles.btnComentar}>
                                     <Button title = "COMENTAR" onPress= {this.props.onComentar.bind(this, this.props.elemento.id)}></Button>
+                                </View>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity onPress= {() => this.setState({showModal: false})}>
+                                <View>
+                                    <Text style={styles.botonSalir}>X</Text>
                                 </View>
                             </TouchableOpacity>
 

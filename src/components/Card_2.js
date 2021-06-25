@@ -92,6 +92,13 @@ class Card_2 extends Component {
                             </TouchableOpacity>
 
                             <Button title = "BORRAR" style= {styles.btnBorrar} onPress= {this.props.onDelete.bind(this, this.props.elemento.id)}></Button>
+                        
+                            <TouchableOpacity onPress= {() => this.setState({showModal: false})}>
+                                <View>
+                                    <Text style={styles.botonSalir}>X</Text>
+                                </View>
+                            </TouchableOpacity>
+                            
                         </View>
                     </View>
                 </Modal>

@@ -205,17 +205,23 @@ modalCloseBtn: {
     fontWeight: 'bold',
     justifyContent: 'center',
     alignSelf: 'center',
+    marginTop: 300,
+    backgroundColor: '#6200E8',
+    fontSize: 30,
 },
 btnModal : {
     position: 'absolute',
     bottom: 560, 
     left: 380,
+    marginTop: 300,
+    backgroundColor: '#6200E8',
 },
 modalCloseBtnContainer: {
     backgroundColor: '#6200E8',
     width: 20,
     height: 20,
     borderRadius: 15,
+    marginTop: 300
 
 }, 
 cardImageModal: {
@@ -517,6 +523,12 @@ btnBorrar: {
     shadowColor: 'rgba(0, 0, 0, 0.8)'
 
 },
+botonSalir: {
+    color: 'black',
+    fontSize: 45,
+    marginTop: 60
+
+}
 
 })
 
