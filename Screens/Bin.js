@@ -87,11 +87,12 @@ export class Bin extends Component {
       // console.log(this.state.tarjetasBorradas);
       let tarjetasRestauradas = this.state.importedUsers.concat(tarjetaRestaurada);
       this.setState({
-        tarjetasBorradas: updateBorradas,
         importedUsers: tarjetasRestauradas,
       });
       const jsonUsers = JSON.stringify(this.state.importedUsers);
-        await AsyncStorage.setItem("Users", jsonUsers);
+      await AsyncStorage.setItem("Users", jsonUsers);
+      const jsonCards = JSON.stringify(this.state.tarjetasBorradas);
+      await AsyncStorage.setItem("Papelera", jsonCards);
       // console.log(this.state.importedUsers);
     }
     catch(error){

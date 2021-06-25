@@ -133,29 +133,19 @@ export class ImportedCards extends Component {
             openDrawer = {this.props.navigation.openDrawer}
             />
             
+            <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text>
 
-            {/* <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text> */}
+            <TouchableOpacity onPress={this.getData.bind(this)}>
+              <View>
+                <Text >Importar datos</Text>
+              </View>
+            </TouchableOpacity>
 
-             <TouchableOpacity onPress={this.getData.bind(this)}>
-                  <View>
-                      <Text style={{color: 'white', marginTop: "10%"}}>Importar datos</Text>
-                  </View>
-              </TouchableOpacity>
-
+            
             <TouchableOpacity>
               <TextInput style={styles.inputBusquedaImportados} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
               <Image style= {styles.searchIconImportados} source= {require('@img/icono_buscador.png')}></Image>
-           </TouchableOpacity>
-
-
-            {/* <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
-                <Text style = {styles.textoAbajoImportados}>Actualizar data</Text>
             </TouchableOpacity>
-
-             {/* {values} */} 
-             {/* <TouchableOpacity onPress={this.getData.bind(this)}>
-                <Text style={styles.textoAbajoImportados2} >Importar data</Text>
-              </TouchableOpacity>  */}
 
              {/* <TouchableOpacity onPress={() => this.showModal()}>
               <Text style = {{color: 'white'}} >ABRETE SESAMO</Text>

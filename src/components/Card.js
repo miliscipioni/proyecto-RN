@@ -41,17 +41,11 @@ class Card extends Component {
                     </View>
                 </TouchableOpacity> 
 
-               {/* <TouchableOpacity
-                onPress= {this.props.onImportar.bind(this, this.props.elemento.id)}
-                >
-                    <View>
-                        
-                       {/* <Text style={{color: 'black', height: 100}}>IMPORTAR</Text> 
+               <TouchableOpacity onPress= {this.props.onImportar.bind(this, this.props.elemento.id)}>
+                    <View style={styles.btnImportar}>                       
+                       <Text style={styles.modalBtnImportar}>IMPORTAR</Text> 
                     </View>
-                </TouchableOpacity> */}
-
-                <Button title="IMPORTAR" onPress= {this.props.onImportar.bind(this, this.props.elemento.id)}/>
-            
+                </TouchableOpacity>
             
 
                 <Modal visible={this.state.showModal} animationType="" transparent={true}>
@@ -97,7 +91,7 @@ class Card extends Component {
 
                             </Text>
 
-                            <TextInput style={styles.InputCantUsuarios} placeholder='Ingresar comentario' multiline numberOfLines={2} onChangeText= {value => this.setState({comentario: value})}></TextInput>
+                            <TextInput style={styles.comentario} placeholder='Ingresar comentario' multiline numberOfLines={2} onChangeText= {value => this.setState({comentario: value})}></TextInput>
                             <Button title= "Comentar" onPress= {()=>this.funComentario(this.state.item)}> </Button>
                            
 
