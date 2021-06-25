@@ -17,6 +17,7 @@ export class Bin extends Component {
     this.state ={
         tarjetasBorradas: [], 
         tarjetasRestauradas: [],
+        importedUsers: [],
     }
   } 
 
@@ -57,77 +58,95 @@ export class Bin extends Component {
         const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
         await AsyncStorage.setItem("Papelera", jsonUsers);
         Alert.alert("Datos almacenados correctamente");
-        console.log(this.state.tarjetasBorradas);
+        // console.log(this.state.tarjetasBorradas);
     }
     catch(error){
         console.log(error)
     }
   } 
 
-  deleteCard(idTarjeta){
-    let nuevoArray = this.state.tarjetasBorradas.filter((tarjeta) => {
-        return tarjeta.id !== idTarjeta 
-    });
-    this.setState({
-      tarjetasBorradas: nuevoArray,
-    })
-  };
-
-  recoverItem(idTarjeta){
-    //si tarjeta.id y idTarjeta son distintos (true) deja ese item, caso contrario, osea que tarjeta.id y idTarjeta sean iguales (false) sacame la tarjeta.
-    let nuevoArray = this.state.tarjetasBorradas.filter((tarjeta) => {
-        return tarjeta.id !== idTarjeta
-        
-    });
-
-    let tarjetaRestaurada = this.state.tarjetasBorradas.filter((tarjeta) => {
-      return tarjeta.id === idTarjeta 
-    });
-
-    let tarjetasRestauradas = this.state.tarjetasBorradas.concat(tarjetaRestaurada);
-
-    this.setState({
-      tarjetasBorradas: nuevoArray,
-      tarjetasRestauradas: tarjetasRestauradas
-    })
-
-    console.log(this.state.tarjetasRestauradas);
-  };
-
-  async getDataOriginal(){
+  async deleteCard(idTarjeta){
     try{
-        const resultado = await AsyncStorage.getItem("Users");
-        this.setState({tarjetasRestauradas: JSON.parse(resultado)});
-        return resultado;
+      // const resultado = await AsyncStorage.getItem("Papelera");
+      // let objetoRecuperado = JSON.parse(resultado);
+      // this.setState({tarjetasBorradas: objetoRecuperado});
+      let borradoDefinitivo = this.state.tarjetasBorradas.filter((tarjeta) => {
+        return tarjeta.id !== idTarjeta 
+      });
+      this.setState({
+        tarjetasBorradas: borradoDefinitivo,
+      });
+      console.log(this.state.tarjetasBorradas);
+      // const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
+      // await AsyncStorage.setItem("Papelera", jsonUsers);
+      // Alert.alert("Datos almacenados correctamente");
     }
     catch(error){
         console.log(error)
     }
-  }
+  };
 
-  
+  async recoverItem(idTarjeta){
+    try{
+      let updateBorradas = this.state.tarjetasBorradas.filter((tarjeta) => {
+        return tarjeta.id !== idTarjeta
+      });
+      let tarjetaRestaurada = this.state.tarjetasBorradas.filter((tarjeta) => {
+        return tarjeta.id === idTarjeta 
+      });
+      const resultado = await AsyncStorage.getItem("Users");
+      let objetoRecuperado = JSON.parse(resultado);
+      this.setState({
+        importedUsers: objetoRecuperado,
+        tarjetasBorradas: updateBorradas,
+      });
+      let tarjetasRestauradas = this.state.importedUsers.concat(tarjetaRestaurada);
+      this.setState({
+        tarjetasBorradas: updateBorradas,
+        importedUsers: tarjetasRestauradas,
+      });
+      const jsonUsers = JSON.stringify(this.state.importedUsers);
+        await AsyncStorage.setItem("Users", jsonUsers);
+      // console.log(this.state.importedUsers);
+    }
+    catch(error){
+        console.log(error)
+    }
+  };
+
+  // async updateStorage(){
+  //   try{
+  //       const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
+  //       await AsyncStorage.setItem("Papelera", jsonUsers);
+  //       Alert.alert("Datos actualizados");
+  //       // console.log(this.state.tarjetasBorradas);
+  //   }
+  //   catch(error){
+  //       console.log(error)
+  //   }
+  // };
 
   render () {
     return(
       <View style={styles.container}> 
         
-        <Text style={styles.papelera}>Papelera de reciclaje</Text>
+        <Text style={styles.navbarDetails}>Papelera de reciclaje</Text>
 
         <TouchableOpacity onPress={this.getData.bind(this)}>
-            <Text style={styles.textoAbajoPapelera}>Ver datos borrados</Text>
+            <Text style={{color: 'white'}}>Ver datos borrados</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={ () => this.deleteAll("Papelera") && this.setState({tarjetasBorradas: [] })}>
-            <Text style={styles.textoAbajoPapelera2}>Vaciar Papelera</Text>
+            <Text style={{color: 'white'}}>VACIAR PAPELERA</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
             <Text style={{color: 'white'}}>Eliminar items marcados de forma definitiva</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.getDataOriginal.bind(this)}>
-            <Text style={{color: 'white'}}>Restaurar items marcados</Text>
-        </TouchableOpacity>
+        {/* <TouchableOpacity onPress={this.updateStorage.bind(this)}>
+            <Text style={{color: 'white'}}>Actualizar almacenamiento de borradas</Text>
+        </TouchableOpacity> */}
 
 
         <FlatList

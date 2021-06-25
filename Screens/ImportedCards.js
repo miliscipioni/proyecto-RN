@@ -73,38 +73,25 @@ export class ImportedCards extends Component {
 }
 
   borrarTarjeta(idTarjeta){
-    
-    //si tarjeta.id y idTarjeta son distintos (true) deja ese item, caso contrario, osea que tarjeta.id y idTarjeta sean iguales (false) sacame la tarjeta.
-    let nuevoArray = this.state.importedUsers.filter((tarjeta) => {
+    let updateUsers = this.state.importedUsers.filter((tarjeta) => {
         return tarjeta.id !== idTarjeta
-        
     });
-
-    // Alert.alert("Datos actualizados", [{
-    //   text: "Guardar en papelera y actualizar data",
-    //   onPress: () => console.log("Cancel Pressed"),
-    //   // onPress: () => this.papeleraStorage.bind(this)
-    // }] )
-
     let tarjetaBorrada = this.state.importedUsers.filter((tarjeta) => {
       return tarjeta.id === idTarjeta 
     });
-
     let tarjetasBorradas = this.state.tarjetasBorradas.concat(tarjetaBorrada);
-
     this.setState({
-      importedUsers: nuevoArray,
-      updateUsers: nuevoArray,
+      importedUsers: updateUsers,
       tarjetasBorradas: tarjetasBorradas,
     })
   };
 
   async updateStorage(){
     try{
-        const jsonUsers = JSON.stringify(this.state.updateUsers);
+        const jsonUsers = JSON.stringify(this.state.importedUsers);
         await AsyncStorage.setItem("Users", jsonUsers);
         Alert.alert("Datos actualizados");
-        console.log(this.state.updateUsers);
+        console.log(this.state.importedUsers);
     }
     catch(error){
         console.log(error)
@@ -124,6 +111,7 @@ export class ImportedCards extends Component {
         await AsyncStorage.setItem("Papelera", jsonUsers);
         Alert.alert("Datos almacenados correctamente");
         console.log(this.state.tarjetasBorradas);
+        this.setState({tarjetasBorradas: []})
     }
     catch(error){
         console.log(error)
