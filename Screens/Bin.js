@@ -16,7 +16,6 @@ export class Bin extends Component {
     super();
     this.state ={
         tarjetasBorradas: [], 
-        tarjetasRestauradas: [],
         importedUsers: [],
     }
   } 
@@ -53,32 +52,17 @@ export class Bin extends Component {
     }
   }
 
-  async papeleraStorage(){
-    try{
-        const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
-        await AsyncStorage.setItem("Papelera", jsonUsers);
-        Alert.alert("Datos almacenados correctamente");
-        // console.log(this.state.tarjetasBorradas);
-    }
-    catch(error){
-        console.log(error)
-    }
-  } 
-
   async deleteCard(idTarjeta){
     try{
-      // const resultado = await AsyncStorage.getItem("Papelera");
-      // let objetoRecuperado = JSON.parse(resultado);
-      // this.setState({tarjetasBorradas: objetoRecuperado});
-      let borradoDefinitivo = this.state.tarjetasBorradas.filter((tarjeta) => {
-        return tarjeta.id !== idTarjeta 
+      let updateBorradas = this.state.tarjetasBorradas.filter((tarjeta) => {
+        return tarjeta.id !== idTarjeta
       });
-      this.setState({
-        tarjetasBorradas: borradoDefinitivo,
+      await this.setState({
+        tarjetasBorradas: updateBorradas,
       });
       console.log(this.state.tarjetasBorradas);
-      // const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
-      // await AsyncStorage.setItem("Papelera", jsonUsers);
+      const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
+      await AsyncStorage.setItem("Papelera", jsonUsers);
       // Alert.alert("Datos almacenados correctamente");
     }
     catch(error){
@@ -100,6 +84,7 @@ export class Bin extends Component {
         importedUsers: objetoRecuperado,
         tarjetasBorradas: updateBorradas,
       });
+      // console.log(this.state.tarjetasBorradas);
       let tarjetasRestauradas = this.state.importedUsers.concat(tarjetaRestaurada);
       this.setState({
         tarjetasBorradas: updateBorradas,
@@ -114,18 +99,6 @@ export class Bin extends Component {
     }
   };
 
-  // async updateStorage(){
-  //   try{
-  //       const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
-  //       await AsyncStorage.setItem("Papelera", jsonUsers);
-  //       Alert.alert("Datos actualizados");
-  //       // console.log(this.state.tarjetasBorradas);
-  //   }
-  //   catch(error){
-  //       console.log(error)
-  //   }
-  // };
-
   render () {
     return(
       <View style={styles.container}> 
@@ -139,15 +112,6 @@ export class Bin extends Component {
         <TouchableOpacity onPress={ () => this.deleteAll("Papelera") && this.setState({tarjetasBorradas: [] })}>
             <Text style={{color: 'white'}}>VACIAR PAPELERA</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
-            <Text style={{color: 'white'}}>Eliminar items marcados de forma definitiva</Text>
-        </TouchableOpacity>
-
-        {/* <TouchableOpacity onPress={this.updateStorage.bind(this)}>
-            <Text style={{color: 'white'}}>Actualizar almacenamiento de borradas</Text>
-        </TouchableOpacity> */}
-
 
         <FlatList
           data={this.state.tarjetasBorradas}

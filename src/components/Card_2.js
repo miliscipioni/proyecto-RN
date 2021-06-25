@@ -39,14 +39,6 @@ class Card_2 extends Component {
                     </View>
                 </TouchableOpacity> 
 
-                <TouchableOpacity>
-                    <View style={styles.btnImportar}>
-                        <Text style={styles.modalBtnImportar}>IMPORTAR</Text>
-                    </View>
-                </TouchableOpacity>
-            
-            
-
                 <Modal visible={this.state.showModal} animationType="" transparent={true}>
                     <View style={styles.modalContainer}>
                         <View style={styles.modal}>

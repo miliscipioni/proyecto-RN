@@ -25,7 +25,6 @@ export class ImportedCards extends Component {
         setItem: null,
         tarjetasBorradas: [],
         comentario: " ",
-        updateUsers: [],
     }
   }
 
@@ -70,32 +69,47 @@ export class ImportedCards extends Component {
       importedUsers: busqueda
     })
     console.log(busqueda)
-}
+  }
 
-  borrarTarjeta(idTarjeta){
-    let updateUsers = this.state.importedUsers.filter((tarjeta) => {
-        return tarjeta.id !== idTarjeta
-    });
-    let tarjetaBorrada = this.state.importedUsers.filter((tarjeta) => {
-      return tarjeta.id === idTarjeta 
-    });
-    let tarjetasBorradas = this.state.tarjetasBorradas.concat(tarjetaBorrada);
-    this.setState({
-      importedUsers: updateUsers,
-      tarjetasBorradas: tarjetasBorradas,
-    })
-  };
-
-  async updateStorage(){
+  async borrarTarjeta(idTarjeta){
     try{
-        const jsonUsers = JSON.stringify(this.state.importedUsers);
-        await AsyncStorage.setItem("Users", jsonUsers);
-        Alert.alert("Datos actualizados");
-        console.log(this.state.importedUsers);
+      let updateUsers = this.state.importedUsers.filter((tarjeta) => {
+        return tarjeta.id !== idTarjeta
+      });
+      let tarjetaBorrada = this.state.importedUsers.filter((tarjeta) => {
+        return tarjeta.id === idTarjeta 
+      });
+      const resultado = await AsyncStorage.getItem("Papelera");
+      this.setState({tarjetasBorradas: JSON.parse(resultado)}); 
+      if (this.state.tarjetasBorradas === null) {
+        this.setState({tarjetasBorradas: []})
+        let tarjetasBorradas = this.state.tarjetasBorradas.concat(tarjetaBorrada);
+        await this.setState({
+          importedUsers: updateUsers,
+          tarjetasBorradas: tarjetasBorradas,
+        });
+        const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
+        await AsyncStorage.setItem("Papelera", jsonUsers);
+        this.setState({tarjetasBorradas: []});
+        const jsonCards = JSON.stringify(this.state.importedUsers);
+        await AsyncStorage.setItem("Users", jsonCards);
+      } else {
+        let tarjetasBorradas = this.state.tarjetasBorradas.concat(tarjetaBorrada);
+        await this.setState({
+          importedUsers: updateUsers,
+          tarjetasBorradas: tarjetasBorradas,
+        });
+        const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
+        await AsyncStorage.setItem("Papelera", jsonUsers);
+        this.setState({tarjetasBorradas: []});
+        const jsonCards = JSON.stringify(this.state.importedUsers);
+        await AsyncStorage.setItem("Users", jsonCards);
+      }
     }
     catch(error){
         console.log(error)
     }
+    
   };
 
   agregarComentario() {
@@ -103,20 +117,7 @@ export class ImportedCards extends Component {
     this.setState({
       comentario: nuevoComentario
     })
-  };
-
-  async papeleraStorage(){
-    try{
-        const jsonUsers = JSON.stringify(this.state.tarjetasBorradas);
-        await AsyncStorage.setItem("Papelera", jsonUsers);
-        Alert.alert("Datos almacenados correctamente");
-        console.log(this.state.tarjetasBorradas);
-        this.setState({tarjetasBorradas: []})
-    }
-    catch(error){
-        console.log(error)
-    }
-  } 
+  }; 
 
   render () { 
       {/*const values = this.state.importedUsers.map( item =>
@@ -135,22 +136,11 @@ export class ImportedCards extends Component {
 
             {/* <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text> */}
 
-            <TouchableOpacity >
-                <Text onPress={this.updateStorage.bind(this)} style={{color: 'white', margin: 30}}>Actualizar data</Text>
-            </TouchableOpacity>
-
-             {/* {values} */} 
              <TouchableOpacity onPress={this.getData.bind(this)}>
                   <View>
-                      <Text style={{color: 'white'}}>Importar datos</Text>
+                      <Text style={{color: 'white', marginTop: "10%"}}>Importar datos</Text>
                   </View>
               </TouchableOpacity>
-
-              <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
-                    <View>
-                        <Text>Mandar datos eliminados a papelera</Text>
-                    </View>
-            </TouchableOpacity>
 
             <TouchableOpacity>
               <TextInput style={styles.inputBusquedaImportados} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
@@ -203,6 +193,3 @@ export class ImportedCards extends Component {
     ) 
   }
 }
-
-//export {ImportedCards}
-//export default ImportedCards;
