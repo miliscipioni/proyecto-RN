@@ -24,6 +24,7 @@ export class Home extends Component {
       textHandler: '',
       comentario: " ",
       importedUsers: [],
+      item: null,
     }
   }
 
@@ -33,8 +34,28 @@ export class Home extends Component {
     console.log(usuarios),
     this.setState({users: usuarios});
   });
-   
   }
+
+  async funComentario(value){
+    try{
+        let comentario = this.state.comentario;
+        let users = this.state.users;
+        users.map((contacto)=>{
+          contacto.funComentario = comentario
+        })
+        const jsonObj = JSON.stringify(users)
+        await AsyncStorage.setItem("users", jsonObj)
+
+        this.setState({
+          users: users,
+          comentario: value
+        })
+
+    }catch(error){
+        console.log(error)
+    }
+}
+
 
   agregarContactos = () => {
     getData(this.state.textHandler) 
@@ -70,14 +91,6 @@ export class Home extends Component {
     })
   };
 
-  agregarComentario() {
-    let nuevoComentario = this.state.comentario
-    this.setState({
-      comentario: nuevoComentario
-    })
-  };
-
-
   async storeData(){
     try{
         const jsonUsers = JSON.stringify(this.state.users);
@@ -93,7 +106,7 @@ export class Home extends Component {
     return (
       <Card
       elemento = {item}
-      onComentar = {this.agregarComentario.bind(this)}
+      onComentar = {this.funComentario.bind(this)}
       onImportar = {this.importarContactos.bind(this)}
       />
     )
@@ -123,9 +136,9 @@ export class Home extends Component {
        <Header
         openDrawer = {this.props.navigation.openDrawer}
        /> 
-       {/* <TouchableOpacity onPress={()=> this.props.navigation.openDrawer()}>
+       <TouchableOpacity onPress={()=> this.props.navigation.openDrawer()}>
           <Image style= {styles.burgerIcon} source= {require('@img/icono_sandwich.png')}/>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
        <Text style={styles.navbarDetailsHome}>Home</Text>
 
         <TextInput style={styles.inputBusqueda} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
