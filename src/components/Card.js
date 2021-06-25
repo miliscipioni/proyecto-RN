@@ -41,11 +41,16 @@ class Card extends Component {
                     </View>
                 </TouchableOpacity> 
 
-                <TouchableOpacity>
-                    <View style={styles.btnImportar}>
-                        <Text style={styles.modalBtnImportar}>IMPORTAR</Text>
+               {/* <TouchableOpacity
+                onPress= {this.props.onImportar.bind(this, this.props.elemento.id)}
+                >
+                    <View>
+                        
+                       {/* <Text style={{color: 'black', height: 100}}>IMPORTAR</Text> 
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+
+                <Button title="IMPORTAR" onPress= {this.props.onImportar.bind(this, this.props.elemento.id)}/>
             
             
 

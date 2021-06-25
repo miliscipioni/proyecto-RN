@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   Button,
   TextInput,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import {styles} from '../src/Styles';
 
@@ -21,9 +21,9 @@ export class Home extends Component {
     super(props);
     this.state = {
       users: [], 
-      busqueda: [],
       textHandler: '',
       comentario: " ",
+      importedUsers: [],
     }
   }
 
@@ -44,6 +44,40 @@ export class Home extends Component {
       })
   }
 
+  importarContactos(idTarjeta){
+    
+    //si tarjeta.id y idTarjeta son distintos (true) deja ese item, caso contrario, osea que tarjeta.id y idTarjeta sean iguales (false) sacame la tarjeta.
+    let nuevoArray = this.state.users.filter((tarjeta) => {
+        return tarjeta.id !== idTarjeta
+        
+    });
+
+    // Alert.alert("Datos actualizados", [{
+    //   text: "Guardar en papelera y actualizar data",
+    //   onPress: () => console.log("Cancel Pressed"),
+    //   // onPress: () => this.papeleraStorage.bind(this)
+    // }] )
+
+    let tarjetaImportada = this.state.users.filter((tarjeta) => {
+      return tarjeta.id === idTarjeta 
+    });
+
+    let tarjetasImportadas = this.state.importedUsers.concat(tarjetaImportada);
+
+    this.setState({
+      users: nuevoArray,
+      importedUsers: tarjetasImportadas,
+    })
+  };
+
+  agregarComentario() {
+    let nuevoComentario = this.state.comentario
+    this.setState({
+      comentario: nuevoComentario
+    })
+  };
+
+
   async storeData(){
     try{
         const jsonUsers = JSON.stringify(this.state.users);
@@ -59,7 +93,8 @@ export class Home extends Component {
     return (
       <Card
       elemento = {item}
-      onComentar = {this.comentarTarjeta.bind(this)}
+      onComentar = {this.agregarComentario.bind(this)}
+      onImportar = {this.importarContactos.bind(this)}
       />
     )
   }
@@ -79,21 +114,6 @@ export class Home extends Component {
     console.log(busqueda)
 }
 
-
-  // let nuevoArray = this.state.importedUsers.filter((tarjeta) => {
-  //     return tarjeta.id !== idTarjeta,
-  // });
-
-comentarTarjeta() {
-  let nuevoComentario = this.state.comentario
-  this.setState({
-    comentario: nuevoComentario
-  })
-  console.log(nuevoComentario)
-};
-
-
-
   render () {
       return(
         
@@ -103,9 +123,10 @@ comentarTarjeta() {
        <Header
         openDrawer = {this.props.navigation.openDrawer}
        /> 
-       <TouchableOpacity onPress={()=> this.props.navigation.openDrawer()}>
+       {/* <TouchableOpacity onPress={()=> this.props.navigation.openDrawer()}>
           <Image style= {styles.burgerIcon} source= {require('@img/icono_sandwich.png')}/>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+       <Text style={styles.navbarDetailsHome}>Home</Text>
 
         <TextInput style={styles.inputBusqueda} placeholder='Ingresar búsqueda' onChangeText={ (text) => this.buscador(text)}> </TextInput>
         <Image style= {styles.searchIcon} source= {require('@img/icono_buscador.png')}></Image>
@@ -138,14 +159,13 @@ comentarTarjeta() {
               numColumns={2}
             
             />
-          </View>
-
+          
           <TouchableOpacity onPress={this.storeData.bind(this)}>
             <View>
-                <Text style={styles.textoAbajo}>Guardar datos</Text>
+                <Text style={{color: 'white', fontSize: 20}}>Guardar datos</Text>
             </View>
           </TouchableOpacity>
-        
+        </View>
 
 
       </ScrollView>
