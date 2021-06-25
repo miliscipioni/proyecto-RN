@@ -92,19 +92,14 @@ class Card extends Component {
                                 {this.props.elemento.phone}
                             </Text>
                     
-
                             <Text style= {styles.secondaryTextModal}> 
-                                <Text style= {styles.detailsTitleModal}> Comentario: </Text> 
-                                {this.props.onComentar.bind(this, this.props.elemento.id)}
+                                <Text style= {styles.detailsTitleModal}> Comentario: {this.state.comentario} </Text> 
+
                             </Text>
 
-                            <TextInput style={styles.InputCantUsuarios} placeholder='Ingresar comentario' multiline numberOfLines={2} onChange= {(text) => this.setState({comentario: text})}></TextInput>
-
-                            <TouchableOpacity onPress= {this.props.onComentar.bind(this, this.props.elemento.id)}>
-                                <View style={styles.btnComentar}>
-                                    <Button title = "COMENTAR" onPress= {this.props.onComentar.bind(this, this.props.elemento.id)}></Button>
-                                </View>
-                            </TouchableOpacity>
+                            <TextInput style={styles.InputCantUsuarios} placeholder='Ingresar comentario' multiline numberOfLines={2} onChangeText= {value => this.setState({comentario: value})}></TextInput>
+                            <Button title= "Comentar" onPress= {()=>this.funComentario(this.state.item)}> </Button>
+                           
 
                             <TouchableOpacity onPress= {() => this.setState({showModal: false})}>
                                 <View>
