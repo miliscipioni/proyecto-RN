@@ -145,23 +145,22 @@ export class ImportedCards extends Component {
             />
             
 
-            <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text> 
-          
+            {/* <Text style={styles.navbarDetailsContactosImp}>Contactos Importados</Text> */}
 
             <TouchableOpacity >
-                <Text onPress={this.updateStorage.bind(this)} style = {styles.textoAbajoImportados}>Actualizar data</Text>
+                <Text onPress={this.updateStorage.bind(this)} style={{color: 'white', margin: 30}}>Actualizar data</Text>
             </TouchableOpacity>
 
              {/* {values} */} 
              <TouchableOpacity onPress={this.getData.bind(this)}>
                   <View>
-                      <Text style={styles.textoAbajoImportados2}>Importar datos</Text>
+                      <Text style={{color: 'white'}}>Importar datos</Text>
                   </View>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
                     <View>
-                        <Text style={styles.textoAbajoPapelera}>Mandar datos eliminados a papelera</Text>
+                        <Text>Mandar datos eliminados a papelera</Text>
                     </View>
             </TouchableOpacity>
 
