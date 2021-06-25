@@ -130,14 +130,14 @@ export class Bin extends Component {
     return(
       <View style={styles.container}> 
         
-        <Text style={styles.navbarDetails}>Papelera de reciclaje</Text>
+        <Text style={styles.papelera}>Papelera de reciclaje</Text>
 
         <TouchableOpacity onPress={this.getData.bind(this)}>
-            <Text style={{color: 'white'}}>Ver datos borrados</Text>
+            <Text style={styles.textoAbajoPapelera}>Ver datos borrados</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={ () => this.deleteAll("Papelera") && this.setState({tarjetasBorradas: [] })}>
-            <Text style={{color: 'white'}}>VACIAR PAPELERA</Text>
+            <Text style={styles.textoAbajoPapelera2}>Vaciar Papelera</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.papeleraStorage.bind(this)}>
